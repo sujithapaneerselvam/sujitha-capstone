@@ -1,0 +1,1 @@
+The temperature parameter in OpenAI's models controls the randomness of the output. A lower temperature (e.g., 0.2) makes the output more deterministic and focused, while a higher temperature (e.g., 0.8) increases randomness and creativity. A temperature of 1.0 is often considered a balanced setting.
