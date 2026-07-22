@@ -1,6 +1,6 @@
-# Knowledge Assistant — Capstone
+# RAG AI Assistant — Capstone
 
-A 30-week build of a Q&A assistant over a small document corpus (Agentic AI & RAG Engineering).
+Learning Agentic AI & RAG Engineering.
 This repo has **two tracks**. Knowing which track a file belongs to is the whole discipline.
 
 ---

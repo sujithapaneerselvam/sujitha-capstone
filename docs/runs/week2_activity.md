@@ -1,0 +1,3 @@
+'asyncio.as_completed' made the actual completion order visible, including which calls finished quickly and which were delayed by retries  whereas 'asyncio.gather' waits for all calls and returns results in the same input order.
+
+I would use 'asyncio.gather' when all results are required before continuing, and 'asyncio.as_completed' when results should be processed or displayed immediately as each task finishes.
