@@ -1,0 +1,161 @@
+strategy,snippet_id,raw_response,extracted,parse_success,cost_usd,latency_s,error,accuracy,llm_judge_score,judge_reason,judge_cost_usd
+zero_shot,j01,"```json
+{""company"":""Acme Corp"",""role"":""Senior Software Engineer"",""years_experience_required"":5}
+```","{'company': 'acme corp', 'role': 'senior software engineer', 'years_experience_required': 5}",True,3.09e-05,3.5598406140002226,,3,4,All fields are correct.,0.0006525000000000001
+zero_shot,j02,"```json
+{""company"":""Northwind Ltd"",""role"":""Data Analyst"",""years_experience_required"":2}
+```","{'company': 'northwind ltd', 'role': 'data analyst', 'years_experience_required': 2}",True,3.0299999999999998e-05,2.4643701329996475,,3,4,All fields are correct.,0.0006425000000000001
+zero_shot,j03,"```json
+{""company"":""Globex International"",""role"":""Product Manager - Growth"",""years_experience_required"":4}
+```","{'company': 'globex international', 'role': 'product manager - growth', 'years_experience_required': 4}",True,3.225e-05,2.5581275149997964,,3,4,All fields are correct.,0.000665
+zero_shot,j04,"```json
+{""company"":""Initech"",""role"":""Lead DevOps Engineer"",""years_experience_required"":6}
+```","{'company': 'initech', 'role': 'lead devops engineer', 'years_experience_required': 6}",True,3.18e-05,2.5205463960000998,,3,4,All fields are correct.,0.0006625000000000001
+zero_shot,j05,"```json
+{""company"":""Hooli"",""role"":""Junior Frontend Developer"",""years_experience_required"":0}
+```","{'company': 'hooli', 'role': 'junior frontend developer', 'years_experience_required': 0}",True,3.1349999999999996e-05,3.193803196999852,,3,4,All fields are correct.,0.000655
+zero_shot,j06,"```json
+{""company"":""Pied Piper Inc."",""role"":""Senior ML Engineer"",""years_experience_required"":7}
+```","{'company': 'pied piper inc.', 'role': 'senior ml engineer', 'years_experience_required': 7}",True,3.255e-05,2.482634548999613,,3,4,All fields are correct.,0.00068
+zero_shot,j07,"```json
+{""company"":""Soylent Industries"",""role"":""Engineering Manager"",""years_experience_required"":3}
+```","{'company': 'soylent industries', 'role': 'engineering manager', 'years_experience_required': 3}",True,3.09e-05,3.7278624239997953,,3,4,All fields are correct.,0.0006575000000000001
+zero_shot,j08,"```json
+{""company"":""Wonka Confectionery Ltd."",""role"":""Senior UX Researcher"",""years_experience_required"":5}
+```","{'company': 'wonka confectionery ltd.', 'role': 'senior ux researcher', 'years_experience_required': 5}",True,3.3e-05,2.625166249999893,,2,4,All fields are correct.,0.0006575000000000001
+zero_shot,j09,"```json
+{""company"":""Stark Industries"",""role"":""Cybersecurity Analyst"",""years_experience_required"":3}
+```","{'company': 'stark industries', 'role': 'cybersecurity analyst', 'years_experience_required': 3}",True,3.1349999999999996e-05,2.591290143000151,,3,4,All fields match the reference data correctly.,0.0006900000000000001
+zero_shot,j10,"```json
+{""company"":""Cyberdyne Systems"",""role"":""AI/ML Research Scientist"",""years_experience_required"":null}
+```","{'company': 'cyberdyne systems', 'role': 'ai/ml research scientist', 'years_experience_required': None}",True,3.4200000000000005e-05,3.172878863000278,,3,4,All fields are correct and match the reference.,0.0007225
+few_shot,j01,"{""company"":""Acme Corp"",""role"":""Senior Software Engineer"",""years_experience_required"":5}","{'company': 'acme corp', 'role': 'senior software engineer', 'years_experience_required': 5}",True,4.6949999999999996e-05,3.8447383660000014,,3,4,All fields are correct.,0.0006525000000000001
+few_shot,j02,"{""company"":""Northwind Ltd"",""role"":""Data Analyst"",""years_experience_required"":2}","{'company': 'northwind ltd', 'role': 'data analyst', 'years_experience_required': 2}",True,4.6349999999999995e-05,3.642485686999862,,3,4,All fields match the reference correctly.,0.0006625000000000001
+few_shot,j03,"{""company"":""Globex International"",""role"":""Product Manager - Growth"",""years_experience_required"":4}","{'company': 'globex international', 'role': 'product manager - growth', 'years_experience_required': 4}",True,4.83e-05,3.7834732999999687,,3,4,All fields are correct.,0.000665
+few_shot,j04,"{""company"":""Initech"",""role"":""Lead DevOps Engineer"",""years_experience_required"":6}","{'company': 'initech', 'role': 'lead devops engineer', 'years_experience_required': 6}",True,4.785e-05,3.475828617999923,,3,4,All fields match the reference data correctly.,0.0006925000000000001
+few_shot,j05,"{""company"":""Hooli"",""role"":""Junior Frontend Developer"",""years_experience_required"":0}","{'company': 'hooli', 'role': 'junior frontend developer', 'years_experience_required': 0}",True,4.74e-05,3.5149147030001586,,3,4,All fields are correct.,0.000655
+few_shot,j06,"{""company"":""Pied Piper Inc."",""role"":""Senior ML Engineer"",""years_experience_required"":7}","{'company': 'pied piper inc.', 'role': 'senior ml engineer', 'years_experience_required': 7}",True,4.86e-05,3.5581653570002345,,3,4,All fields are correct.,0.00068
+few_shot,j07,"{""company"":""Soylent Industries"",""role"":""Engineering Manager"",""years_experience_required"":3}","{'company': 'soylent industries', 'role': 'engineering manager', 'years_experience_required': 3}",True,4.6949999999999996e-05,3.6199851350002064,,3,4,All fields are correct.,0.0006575000000000001
+few_shot,j08,"{""company"":""Wonka Confectionery Ltd"",""role"":""Senior UX Researcher"",""years_experience_required"":5}","{'company': 'wonka confectionery ltd', 'role': 'senior ux researcher', 'years_experience_required': 5}",True,4.904999999999999e-05,4.26775509700019,,3,4,All fields are correct and match the reference.,0.0006975
+few_shot,j09,"{""company"":""Stark Industries"",""role"":""Cybersecurity Analyst"",""years_experience_required"":3}","{'company': 'stark industries', 'role': 'cybersecurity analyst', 'years_experience_required': 3}",True,4.74e-05,4.382000009999956,,3,4,All fields match the reference data correctly.,0.0006900000000000001
+few_shot,j10,"{""company"":""Cyberdyne Systems"",""role"":""AI/ML Research Scientist"",""years_experience_required"":null}","{'company': 'cyberdyne systems', 'role': 'ai/ml research scientist', 'years_experience_required': None}",True,5.025e-05,4.514329339000142,,3,4,All fields are correct and match the reference.,0.0007225
+structured,j01,"{
+  ""company"": ""Acme Corp"",
+  ""role"": ""Senior Software Engineer"",
+  ""years_experience_required"": 5
+}","{'company': 'acme corp', 'role': 'senior software engineer', 'years_experience_required': 5}",True,4.3650000000000004e-05,4.640177677999873,,3,4,All fields are correct.,0.0006525000000000001
+structured,j02,"{
+  ""company"": ""Northwind Ltd"",
+  ""role"": ""Data Analyst"",
+  ""years_experience_required"": 2
+}","{'company': 'northwind ltd', 'role': 'data analyst', 'years_experience_required': 2}",True,4.305e-05,4.703807286000028,,3,4,All fields are correct.,0.0006425000000000001
+structured,j03,"{
+  ""company"": ""Globex International"",
+  ""role"": ""Product Manager - Growth"",
+  ""years_experience_required"": 4
+}","{'company': 'globex international', 'role': 'product manager - growth', 'years_experience_required': 4}",True,4.4999999999999996e-05,4.752555881000262,,3,4,All fields match the reference data correctly.,0.0006950000000000001
+structured,j04,"{
+  ""company"": ""Initech"",
+  ""role"": ""Lead DevOps Engineer"",
+  ""years_experience_required"": 6
+}","{'company': 'initech', 'role': 'lead devops engineer', 'years_experience_required': 6}",True,4.455e-05,4.819229018999977,,3,4,All fields are correct.,0.0006625000000000001
+structured,j05,"{
+  ""company"": ""Hooli"",
+  ""role"": ""Junior Frontend Developer"",
+  ""years_experience_required"": 0
+}","{'company': 'hooli', 'role': 'junior frontend developer', 'years_experience_required': 0}",True,4.41e-05,4.815186971000003,,3,4,All fields are correct.,0.000655
+structured,j06,"{
+  ""company"": ""Pied Piper Inc."",
+  ""role"": ""Senior ML Engineer"",
+  ""years_experience_required"": 7
+}","{'company': 'pied piper inc.', 'role': 'senior ml engineer', 'years_experience_required': 7}",True,4.5299999999999997e-05,5.053627316999609,,3,4,All fields are correctly extracted and match the reference.,0.0007300000000000001
+structured,j07,"{
+  ""company"": ""Soylent Industries"",
+  ""role"": ""Engineering Manager"",
+  ""years_experience_required"": 3
+}","{'company': 'soylent industries', 'role': 'engineering manager', 'years_experience_required': 3}",True,4.365e-05,4.894000777000201,,3,4,All fields are correct.,0.0006575000000000001
+structured,j08,"{
+  ""company"": ""Wonka Confectionery Ltd."",
+  ""role"": ""Senior UX Researcher"",
+  ""years_experience_required"": 5
+}","{'company': 'wonka confectionery ltd.', 'role': 'senior ux researcher', 'years_experience_required': 5}",True,4.575e-05,5.525380095999935,,2,4,All fields match the reference exactly.,0.0006775
+structured,j09,"{
+  ""company"": ""Stark Industries"",
+  ""role"": ""Cybersecurity Analyst"",
+  ""years_experience_required"": 3
+}","{'company': 'stark industries', 'role': 'cybersecurity analyst', 'years_experience_required': 3}",True,4.41e-05,5.588147338999988,,3,4,All fields match the reference data correctly.,0.0006900000000000001
+structured,j10,"{
+  ""company"": ""Cyberdyne Systems"",
+  ""role"": ""AI/ML Research Scientist"",
+  ""years_experience_required"": null
+}","{'company': 'cyberdyne systems', 'role': 'ai/ml research scientist', 'years_experience_required': None}",True,4.635e-05,5.670118044999981,,3,4,All fields are correct and match the reference.,0.0007225
+cot,j01,"```json
+{
+  ""company"": ""Acme Corp"",
+  ""role"": ""Senior Software Engineer"",
+  ""years_experience_required"": 5
+}
+```","{'company': 'acme corp', 'role': 'senior software engineer', 'years_experience_required': 5}",True,3.39e-05,5.9566203530002895,,3,4,All fields are correct.,0.0006525000000000001
+cot,j02,"```json
+{
+  ""company"": ""Northwind Ltd."",
+  ""role"": ""Data Analyst"",
+  ""years_experience_required"": 2
+}
+```","{'company': 'northwind ltd.', 'role': 'data analyst', 'years_experience_required': 2}",True,3.3299999999999996e-05,5.833034884999961,,2,4,All fields match the reference exactly.,0.0006625000000000001
+cot,j03,"```json
+{
+  ""company"": ""Globex International"",
+  ""role"": ""Product Manager - Growth"",
+  ""years_experience_required"": 4
+}
+```","{'company': 'globex international', 'role': 'product manager - growth', 'years_experience_required': 4}",True,3.5249999999999996e-05,5.769938901999922,,3,4,All fields match the reference data correctly.,0.0006950000000000001
+cot,j04,"```json
+{
+  ""company"": ""Initech"",
+  ""role"": ""Lead DevOps Engineer"",
+  ""years_experience_required"": 6
+}
+```","{'company': 'initech', 'role': 'lead devops engineer', 'years_experience_required': 6}",True,3.48e-05,5.820718840000154,,3,4,All fields match the reference data correctly.,0.0006925000000000001
+cot,j05,"```json
+{
+  ""company"": ""Hooli"",
+  ""role"": ""Junior Frontend Developer"",
+  ""years_experience_required"": null
+}
+```","{'company': 'hooli', 'role': 'junior frontend developer', 'years_experience_required': None}",True,3.375e-05,5.765551152000171,,2,3,"Two fields are correct, but 'years_experience_required' should be 0 instead of null.",0.0008025
+cot,j06,"```json
+{
+  ""company"": ""Pied Piper Inc."",
+  ""role"": ""Senior ML Engineer"",
+  ""years_experience_required"": 7
+}
+```","{'company': 'pied piper inc.', 'role': 'senior ml engineer', 'years_experience_required': 7}",True,3.555e-05,5.864064368000072,,3,4,All fields are correctly extracted and match the reference.,0.0007300000000000001
+cot,j07,"```json
+{
+  ""company"": ""Soylent Industries"",
+  ""role"": ""Engineering Manager"",
+  ""years_experience_required"": 3
+}
+```","{'company': 'soylent industries', 'role': 'engineering manager', 'years_experience_required': 3}",True,3.39e-05,6.085879520000162,,3,4,All fields are correct.,0.0006575000000000001
+cot,j08,"```json
+{
+  ""company"": ""Wonka Confectionery Ltd."",
+  ""role"": ""Senior UX Researcher"",
+  ""years_experience_required"": 5
+}
+```","{'company': 'wonka confectionery ltd.', 'role': 'senior ux researcher', 'years_experience_required': 5}",True,3.5999999999999994e-05,6.872976525000013,,2,4,All fields are correct.,0.0006575000000000001
+cot,j09,"```json
+{
+  ""company"": ""Stark Industries"",
+  ""role"": ""Cybersecurity Analyst"",
+  ""years_experience_required"": 3
+}
+```","{'company': 'stark industries', 'role': 'cybersecurity analyst', 'years_experience_required': 3}",True,3.4349999999999995e-05,7.471168871999907,,3,4,All fields match the reference data correctly.,0.0006900000000000001
+cot,j10,"```json
+{
+  ""company"": ""Cyberdyne Systems"",
+  ""role"": ""AI/ML Research Scientist"",
+  ""years_experience_required"": null
+}
+```","{'company': 'cyberdyne systems', 'role': 'ai/ml research scientist', 'years_experience_required': None}",True,3.6599999999999995e-05,6.73370719400009,,3,4,All fields match the reference correctly with no fabricated experience.,0.0007425000000000001
