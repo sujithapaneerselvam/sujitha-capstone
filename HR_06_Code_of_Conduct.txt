@@ -1,0 +1,60 @@
+CODE OF CONDUCT
+===============
+
+Document ID: GOV-POL-006
+Version: 1.0
+Owner: Ethics and Compliance
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees, officers, interns, and contractors working for BrightPath
+Status: Approved for academic use
+
+1. PURPOSE
+
+The Code of Conduct establishes expected professional behaviour and explains how to raise concerns. It supports a respectful, lawful, secure, and inclusive workplace in which business decisions can be examined and defended.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees, officers, interns, and contractors working for brightpath. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Ethics and Compliance owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Everyone must treat colleagues, customers, suppliers, and visitors with dignity. Harassment, discrimination, bullying, threats, retaliation, and deliberate humiliation are prohibited in offices and digital channels.
+- Employees must avoid actual or apparent conflicts between personal interests and BrightPath responsibilities. Potential conflicts should be disclosed before participating in the relevant decision.
+- Gifts or hospitality must be modest, lawful, infrequent, and unrelated to an active purchasing decision. Cash or cash equivalents must never be accepted.
+- Confidential company, employee, and customer information may be accessed only for authorised work and shared only with people who have a legitimate need.
+- Company systems must not be used for fraud, harassment, unlawful material, unauthorised commercial activity, credential sharing, or attempts to bypass security controls.
+- Business records, expense claims, time entries, test results, and approvals must be accurate. Deleting or changing records to hide an error or avoid review is misconduct.
+- Employees may participate in lawful personal activity and express personal views, but must not present those views as official BrightPath positions without authority.
+- Retaliation against anyone who raises a concern honestly or participates in an investigation is prohibited, even when the concern is not ultimately substantiated.
+
+4. STANDARD PROCEDURE
+
+1. When uncertain, pause the decision and identify the policy, legal, security, or ethical issue involved.
+2. Ask a manager, People Help, Information Security, Legal, or Ethics and Compliance for guidance before acting.
+3. Report urgent threats to personal safety through local emergency services and workplace security.
+4. Report suspected misconduct through the confidential ethics channel or another listed reporting route.
+5. Preserve relevant messages and records; do not investigate colleagues or confront a suspected person independently.
+6. Cooperate truthfully with authorised reviews and maintain confidentiality to the extent requested.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- An employee involved in selecting a vendor must disclose that a close relative works for one bidder. Disclosure does not automatically disqualify the vendor, but the employee should leave the decision process.
+- A supplier offering a shopping voucher during a contract renewal creates an unacceptable appearance of influence and the voucher must be declined and reported.
+
+7. SUPPORT AND ESCALATION
+
+Routine questions may go to a manager or People Help. Security and privacy issues go to Information Security or Privacy. Suspected fraud, harassment, retaliation, bribery, or senior-leader misconduct may be reported directly through the confidential ethics channel without first informing a manager.
+
+8. RELATED DOCUMENTS
+
+Employee Onboarding Guide; Travel and Expense Policy; IT Incident Reporting Procedure
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

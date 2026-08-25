@@ -1,0 +1,60 @@
+VIRTUAL PRIVATE NETWORK SETUP GUIDE
+===================================
+
+Document ID: IT-GDE-002
+Version: 1.0
+Owner: IT Workplace Services
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees approved to access internal services from outside a BrightPath office
+Status: Approved for academic use
+
+1. PURPOSE
+
+This guide explains how to install, configure, use, and troubleshoot the approved VPN client. The VPN protects traffic to internal services but does not remove the employee's responsibility to use secure networks and approved devices.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees approved to access internal services from outside a brightpath office. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. IT Workplace Services owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- VPN access is available only from a company-managed device that shows compliant status in the device-management portal.
+- Employees must use the approved client from the corporate software centre. Downloads from search results, personal storage, or unverified websites are prohibited.
+- The VPN requires a corporate username, password, and MFA approval. Credentials and one-time codes must not be shared with support staff.
+- Connect to the nearest approved gateway unless a customer or application instruction specifies another location. Choosing distant gateways may reduce performance.
+- A public Wi-Fi network should be treated as untrusted. Employees should verify the network name, disable automatic connection, and start the VPN before opening internal resources.
+- Split tunnelling is centrally configured and must not be changed. Personal proxy tools, consumer VPN products, and network-bypass utilities must not run alongside the corporate client.
+- The client may disconnect when the device sleeps, changes network, or loses compliance. The employee must reconnect before resuming internal work.
+- VPN access logs are retained for security and operational purposes under the applicable privacy and logging standards.
+
+4. STANDARD PROCEDURE
+
+1. Open the corporate software centre and install BrightPath Secure Connect.
+2. Restart the device if requested and confirm that the system clock is accurate.
+3. Open the client, enter vpn.brightpath.example, and sign in with the corporate account.
+4. Approve the MFA request only after confirming that the sign-in was initiated by you.
+5. Verify that status shows Connected and then open the required internal service.
+6. To disconnect, save work, close internal sessions, and choose Disconnect from the client.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- If the client reports Device not compliant, install pending operating-system or security updates, restart, and check compliance again before contacting support.
+- If internet browsing works but an internal application does not, record the application name, gateway, time, and error message; do not repeatedly reinstall the client.
+
+7. SUPPORT AND ESCALATION
+
+Installation and connectivity problems go to the IT service desk with the device asset number, gateway, time, network type, and exact error. Unexpected MFA prompts, an unknown VPN client, or suspected interception must be reported through the security incident process immediately.
+
+8. RELATED DOCUMENTS
+
+Password and MFA Guide; Remote Work Policy; Laptop and Equipment Policy; IT Incident Reporting Procedure
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

@@ -11,7 +11,6 @@ Run with:
 """
 from unittest.mock import AsyncMock, patch, MagicMock
 import pytest
-
 # Import the W2 fake-LLM types (Question, Answer, FakeLLMError).
 # These live in src/pipeline/fake_llm.py.
 from src.pipeline.fake_llm import Question, Answer, FakeLLMError
@@ -34,25 +33,35 @@ async def test_ask_llm_calls_fake_once():
     We mock the boundary we don't want to exercise (the fake call itself) and
     assert behaviour we do control (ask_llm calls it once, returns its result).
     """
-    # fake_answer = Answer(
-    #     question="What is RAG?",
-    #     text="Mocked answer.",
-    #     cost_usd=0.0001,
-    #     retries=0,
-    # )
+    fake_answer = Answer(
+        question="What is RAG?",
+        text="Mocked answer.",
+        cost_usd=0.0001,
+        retries=0,
+        confidence=0.9,
+        sources=[],
+    )
 
-    fake_answer = fake_openai_response("Mocked answer.")
-    
+    mocked_fake_call = AsyncMock(return_value=fake_answer)
 
-    with patch(
-        # "src.pipeline.pipeline.fake_ask_llm",
-        "src.pipeline.pipeline._client.chat.completions.create",
-        AsyncMock(return_value=fake_answer),
-    ) as m:
+
+    with (
+        patch(
+            "src.pipeline.pipeline.fake_ask_llm",
+            mocked_fake_call,
+        ) as m,
+        patch(
+            "src.pipeline.pipeline._settings_for_import.use_fake",
+            True,
+        ),
+    ):
         from src.pipeline.pipeline import ask_llm
-        result = await ask_llm(Question(text="What is RAG?"))
 
-    assert m.call_count == 1
+        result = await ask_llm(
+            Question(text="What is RAG?")
+        )
+
+    m.assert_awaited_once()
     assert result.text == "Mocked answer."
 
 

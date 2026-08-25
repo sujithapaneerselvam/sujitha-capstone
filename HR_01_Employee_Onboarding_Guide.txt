@@ -1,0 +1,60 @@
+EMPLOYEE ONBOARDING GUIDE
+=========================
+
+Document ID: HR-GDE-001
+Version: 1.0
+Owner: People Operations
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: All newly hired permanent and fixed-term employees in India
+Status: Approved for academic use
+
+1. PURPOSE
+
+This guide explains what a new employee and the supporting teams must complete from acceptance of the offer through the end of the first ninety days. Its objective is to create a consistent start, ensure required access is available, and give employees clear contacts when information is missing.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to all newly hired permanent and fixed-term employees in india. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. People Operations owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- People Operations sends the joining pack at least five working days before the start date. The pack includes the employment agreement, personal-information form, tax declaration, emergency-contact form, and this guide.
+- The employee must submit identity, address, bank, tax, and education documents through the approved HR portal. Documents must not be emailed to personal or shared mailboxes.
+- The hiring manager nominates a workplace buddy and submits laptop, email, VPN, repository, and business-application requests no later than three working days before joining.
+- The first-day orientation begins at 10:00 a.m. Indian Standard Time. Remote employees join through the invitation in the corporate calendar; office employees report to reception with photo identification.
+- Mandatory learning includes information security, respectful workplace conduct, data privacy, and emergency procedures. These courses must be completed within ten calendar days.
+- New employees receive goals for the first thirty, sixty, and ninety days from their manager. Goals should describe expected learning, initial deliverables, and the support available.
+- Employees may ask policy questions through the People Help portal. Payroll-specific questions go to Payroll Operations, while access and equipment issues go to the IT service desk.
+- Probation reviews occur near day forty-five and day eighty-five. The manager documents progress and discusses any support or corrective action directly with the employee.
+
+4. STANDARD PROCEDURE
+
+1. Before joining, complete the HR forms and verify that the name used for payroll matches the name on the bank account.
+2. On day one, attend orientation, activate the corporate account, register MFA, and confirm receipt of equipment.
+3. During the first week, meet the manager, buddy, immediate team, HR contact, and IT support representative.
+4. Complete mandatory courses and acknowledge the Code of Conduct before the tenth calendar day.
+5. Review the thirty-day plan with the manager and record missing access or unclear responsibilities.
+6. Attend the forty-five-day check-in and the final probation discussion near day eighty-five.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A remote engineer whose laptop has not arrived should notify both the manager and IT service desk. The manager may assign browser-based learning, but the employee must not use an unmanaged personal device for customer data.
+- If a bank document contains a different spelling of the employee's name, Payroll Operations must confirm the acceptable evidence before the first payroll cut-off.
+
+7. SUPPORT AND ESCALATION
+
+Questions about employment documents or orientation go to People Help. Missing equipment, MFA, email, VPN, or application access goes to the IT service desk. If either team does not respond within one working day of the start date, the hiring manager escalates to the People Operations manager or IT service delivery manager.
+
+8. RELATED DOCUMENTS
+
+Code of Conduct; Password and MFA Guide; Laptop and Equipment Policy; Software Access Request Process
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

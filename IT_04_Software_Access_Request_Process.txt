@@ -1,0 +1,60 @@
+SOFTWARE ACCESS REQUEST PROCESS
+===============================
+
+Document ID: IT-PRO-004
+Version: 1.0
+Owner: Identity Governance and IT Service Management
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees, contractors, managers, application owners, and access approvers
+Status: Approved for academic use
+
+1. PURPOSE
+
+This process explains how users request new software or access to an existing application. It applies least-privilege controls, records approvals, checks licence availability, and provides a traceable route for urgent or disputed requests.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees, contractors, managers, application owners, and access approvers. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Identity Governance and IT Service Management owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Access must be linked to a named user and a legitimate business need. Shared accounts are prohibited unless an application owner documents a technical exception and compensating controls.
+- Employees may request access for themselves. Managers may request access for a new team member, but the request must identify the intended user and required start date.
+- The request must name the application, role or permission level, project or customer, business reason, required duration, and data sensitivity involved.
+- The reporting manager approves business need. The application owner approves the permission level. Security, Privacy, Finance, or Procurement may review high-risk data or new paid software.
+- Access is granted at the lowest level that supports the work. Administrator, production, export, and bulk-download rights require specific justification and additional approval.
+- Time-bound access should have an expiry date. Permanent access is recertified periodically by the manager and application owner.
+- Users must not borrow another person's account while waiting. A missed deadline does not authorise bypassing the approval or purchasing software personally for company use.
+- When a user changes role or leaves, the manager must ensure unnecessary access is removed through the transfer or separation workflow.
+
+4. STANDARD PROCEDURE
+
+1. Search the service catalogue for the application and read the role descriptions.
+2. Select the minimum suitable role and complete all required business, project, duration, and data fields.
+3. Attach customer or department approval when the catalogue item asks for it.
+4. Track approval in the service portal and respond to clarification rather than opening duplicate requests.
+5. After fulfilment, test access and report excessive or incorrect permissions immediately.
+6. Before the need ends, request removal or allow approved temporary access to expire.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A developer needing read-only production logs should request the log-viewer role rather than production administrator. Deployment pressure alone does not justify broader rights.
+- A new design tool that is not in the catalogue requires security and procurement review before purchase, even when a free trial is available.
+
+7. SUPPORT AND ESCALATION
+
+Use the existing request's escalation option when the stated service time is exceeded. Managers may mark genuine business-critical requests as urgent and explain the impact, but approvers still complete required security checks. Suspected excessive access must be reported to Identity Governance immediately.
+
+8. RELATED DOCUMENTS
+
+Employee Onboarding Guide; Password and MFA Guide; IT Incident Reporting Procedure
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

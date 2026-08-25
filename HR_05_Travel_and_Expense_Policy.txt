@@ -1,0 +1,60 @@
+TRAVEL AND EXPENSE POLICY
+=========================
+
+Document ID: FIN-POL-005
+Version: 1.0
+Owner: Finance Operations
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees and approved contractors travelling on BrightPath business
+Status: Approved for academic use
+
+1. PURPOSE
+
+This policy describes how business travel is approved, booked, paid, documented, and reimbursed. The aim is to support safe and effective travel while controlling cost and maintaining an auditable record.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees and approved contractors travelling on brightpath business. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Finance Operations owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- All travel must have a clear business purpose and written manager approval before booking. International travel also requires department-head approval.
+- Employees must use the approved travel portal or agency unless an emergency prevents it. Personal loyalty benefits may be retained but must not influence selection of a more expensive option.
+- Economy class is required for flights under six hours. Premium economy may be approved for longer flights; business class requires an approved medical accommodation or executive exception.
+- Hotels should be within the city limit shown in the travel portal. When no compliant hotel is available, the traveller records a reason and obtains approval before booking.
+- Meals are reimbursed against actual itemised receipts up to the published city limit. Alcohol, minibar purchases, personal entertainment, fines, and costs for accompanying family members are not reimbursable.
+- Local transport should use reasonable and safe options. Employees should avoid renting a vehicle unless public transport or approved taxi service is impractical.
+- Expense reports are due within ten working days after return. Each item must show date, amount, currency, business purpose, project or cost centre, and receipt where required.
+- A missing receipt requires a declaration and manager approval. Repeated missing receipts may be rejected and referred to Finance Compliance.
+
+4. STANDARD PROCEDURE
+
+1. Create a travel request with destination, dates, purpose, estimated cost, and project code.
+2. Wait for required approvals and then book through the approved channel.
+3. Keep itemised electronic receipts and record the business purpose while details are fresh.
+4. Report itinerary changes or safety incidents to the manager and travel provider.
+5. Submit one expense report for the trip within ten working days of return.
+6. Respond to Finance questions within five working days and correct rejected lines rather than submitting duplicate claims.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A traveller may choose a slightly higher fare when it avoids an unsafe overnight connection, provided the reason is recorded and the manager approves before booking.
+- A meal receipt containing food for a colleague should name the attendees and business purpose. A meal for a family member accompanying the employee remains personal.
+
+7. SUPPORT AND ESCALATION
+
+Booking problems during travel go to the approved travel provider's emergency line. Policy interpretation and rejected expense lines go to Finance Help. Health or security emergencies should first use local emergency services, then the travel provider and manager.
+
+8. RELATED DOCUMENTS
+
+Annual Leave Policy; Remote Work Policy; Code of Conduct
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

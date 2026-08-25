@@ -1,0 +1,60 @@
+LAPTOP AND EQUIPMENT POLICY
+===========================
+
+Document ID: IT-POL-003
+Version: 1.0
+Owner: IT Asset Management
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees and contractors issued BrightPath technology assets
+Status: Approved for academic use
+
+1. PURPOSE
+
+This policy defines how laptops, monitors, phones, security keys, and accessories are requested, recorded, protected, repaired, replaced, and returned. Company equipment remains BrightPath property unless a written disposal process states otherwise.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees and contractors issued brightpath technology assets. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. IT Asset Management owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Each assigned asset is recorded against an individual user and location. Employees must verify the asset tag and condition when accepting equipment.
+- Only IT Workplace Services may install operating-system images, remove security controls, open a laptop chassis, or authorise an external repair.
+- Employees must permit automatic security updates, use screen lock, protect devices from unauthorised access, and avoid leaving equipment unattended in public places or vehicles.
+- Family members and other unauthorised people must not use company equipment, even for brief personal tasks.
+- Reasonable incidental personal use is allowed when lawful and low-risk, but company work, security, storage, and licensing requirements take priority.
+- Standard accessories are issued according to role. Additional monitors, ergonomic equipment, or specialist hardware require manager approval and may require workplace-accommodation review.
+- Damage, malfunction, loss, or theft must be reported promptly. Employees must not delay reporting while trying to recover or repair a device themselves.
+- All assigned equipment must be returned by the date specified for separation, replacement, or extended leave. Data should not be deleted or copied to personal storage before return.
+
+4. STANDARD PROCEDURE
+
+1. Submit an equipment request with business reason, location, required date, and manager approval.
+2. On receipt, inspect packaging and device condition, verify the asset tag, and acknowledge custody in the asset portal.
+3. Sign in using the corporate account, complete required updates, and confirm encryption and endpoint protection are active.
+4. For malfunction, back up work through approved services and open a service ticket with symptoms and troubleshooting already attempted.
+5. For replacement, follow the return instructions and keep the shipping or handover receipt.
+6. For loss or theft, follow the Lost or Stolen Device Procedure immediately rather than using a normal repair ticket.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A cracked screen caused by an accident should be reported honestly through a repair ticket. The employee should not take the laptop to a local repair shop or conceal the damage.
+- A departing employee working remotely receives approved packaging and courier instructions. The asset remains assigned until Asset Management records receipt.
+
+7. SUPPORT AND ESCALATION
+
+Standard requests and faults go to IT Workplace Services. Unresolved requests affecting a start date or critical delivery should be escalated by the manager with the existing ticket number. Any loss, theft, suspected tampering, or exposure of company information uses the security incident route.
+
+8. RELATED DOCUMENTS
+
+Employee Onboarding Guide; Software Access Request Process; Lost or Stolen Device Procedure
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

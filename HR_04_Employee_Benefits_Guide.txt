@@ -1,0 +1,60 @@
+EMPLOYEE BENEFITS GUIDE
+=======================
+
+Document ID: HR-GDE-004
+Version: 1.0
+Owner: Total Rewards Team
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Eligible employees and registered dependants on the India payroll
+Status: Approved for academic use
+
+1. PURPOSE
+
+This guide summarises BrightPath's fictional employee benefits and explains enrolment, evidence, claim support, and common limitations. Formal insurer terms and statutory rules take priority if this summary conflicts with a plan document.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to eligible employees and registered dependants on the india payroll. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Total Rewards Team owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Medical coverage begins on the employee's joining date after required enrolment data is accepted. Eligible dependants are a spouse or declared partner, up to two dependent children, and either parents or parents-in-law.
+- New employees must review dependant details within fifteen calendar days. Later additions are permitted after a qualifying life event or during the annual enrolment window.
+- The core medical premium is paid by BrightPath. Optional enhanced coverage and certain dependant additions may require an employee contribution shown before confirmation.
+- Cashless treatment is available only through participating providers and depends on insurer pre-authorisation. Emergency admission should be reported to the insurer as soon as reasonably possible.
+- Reimbursement claims require itemised bills, prescriptions where applicable, discharge information, payment evidence, and a completed claim form submitted within thirty days of discharge.
+- The employee assistance programme provides confidential counselling sessions through an external provider. Managers receive no clinical details or individual usage records.
+- Eligible employees may claim an annual learning allowance after manager approval when the course supports their current role or an agreed development plan.
+- Benefit values may be reviewed annually. An employee should rely on the current portal summary rather than an old email, screenshot, or colleague's previous claim outcome.
+
+4. STANDARD PROCEDURE
+
+1. Open the Benefits section of the HR portal and verify personal and dependant data.
+2. Upload relationship or birth evidence when the portal requests it and track the verification status.
+3. Download the digital medical card only after enrolment shows Active.
+4. For planned treatment, contact the insurer before admission and confirm network and pre-authorisation requirements.
+5. For reimbursement, retain original documents and submit the complete claim before the stated deadline.
+6. Raise an HR benefits case if enrolment information is incorrect; raise a claim appeal directly with the insurer when coverage is active but a claim is rejected.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A new employee who forgets to add a parent during the initial window generally must wait for annual enrolment unless the plan recognises a qualifying life event.
+- A manager may approve a relevant cloud certification under the learning allowance, but approval does not guarantee reimbursement when the employee has already used the annual limit.
+
+7. SUPPORT AND ESCALATION
+
+Portal-data and eligibility questions go to the Total Rewards queue in People Help. Treatment approval and claim-status questions go to the insurer using the number on the digital card. Sensitive counselling matters must be directed to the employee assistance provider rather than HR or a manager.
+
+8. RELATED DOCUMENTS
+
+Employee Onboarding Guide; Annual Leave Policy; Travel and Expense Policy
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

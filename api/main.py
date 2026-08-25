@@ -21,8 +21,17 @@ from pydantic import BaseModel
 
 # W2 pipeline — the underlying engine
 from src.pipeline.pipeline import ask_llm as _pipeline_ask_llm
+from src.pipeline.pipeline import stream_answer as _pipeline_stream
 from src.pipeline.pipeline import Question as _PipelineQuestion
 
+# W6: naive RAG retrieval. Load the index once at startup; if it's missing
+# (not built yet), fall back to answering from training data.
+try:
+    from src.rag.naive_rag import load_index, retrieve
+    _RAG_INDEX = load_index()
+    logging.getLogger(__name__).info("RAG index loaded: %d chunks", len(_RAG_INDEX))
+except Exception as _e:  # index not built yet -> app still works, just ungrounded
+    _RAG_INDEX = None
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -40,10 +49,12 @@ class Question(BaseModel):
 
 
 class Answer(BaseModel):
-    """Public response shape — locked in ADR 0002."""
+    """Public response shape — locked in ADR 0002 (grown additively in W4)."""
     content: str
     cost_usd: float
     retries: int
+    confidence: float = 1.0
+    sources: list[str] = []
 
 
 app = FastAPI(
@@ -69,11 +80,20 @@ async def ask_batched(q: Question) -> Answer:
     """Non-streaming. Returns the full Answer in a single JSON body."""
     log.info("ask_batched  question=%r", q.question[:80])
     pipeline_q = _PipelineQuestion(text=q.question)
-    pipeline_ans = await _pipeline_ask_llm(pipeline_q)
+
+    context, sources = None, None
+    if _RAG_INDEX:                                    # W6: retrieve before answering
+        hits = retrieve(q.question, _RAG_INDEX, k=3)
+        context = "\n\n".join(f"[{h['chunk_id']}]\n{h['text']}" for h in hits)
+        sources = [h["chunk_id"] for h in hits]
+
+    pipeline_ans = await _pipeline_ask_llm(pipeline_q, context=context, sources=sources)
     return Answer(
         content=pipeline_ans.text,
         cost_usd=pipeline_ans.cost_usd,
         retries=pipeline_ans.retries,
+        confidence=pipeline_ans.confidence,
+        sources=pipeline_ans.sources,
     )
 
 
@@ -104,10 +124,10 @@ async def stream_answer(question_text: str):
 
 @app.post("/ask")
 async def ask(q: Question):
-    """Streaming /ask — the contracted endpoint."""
+    """Streaming /ask — now backed by the pipeline's REAL token stream (W4)."""
     log.info("ask  question=%r", q.question[:80])
     return StreamingResponse(
-        stream_answer(q.question),
+        _pipeline_stream(q.question),
         media_type="text/plain",
     )
 

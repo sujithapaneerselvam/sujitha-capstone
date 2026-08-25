@@ -1,0 +1,60 @@
+IT AND INFORMATION SECURITY INCIDENT REPORTING PROCEDURE
+========================================================
+
+Document ID: SEC-PRO-005
+Version: 1.0
+Owner: Information Security
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: All BrightPath employees, contractors, and system users
+Status: Approved for academic use
+
+1. PURPOSE
+
+This procedure tells users how to recognise and report technology or information-security events. Rapid reporting allows specialists to contain harm, preserve evidence, notify affected stakeholders, and meet legal or customer obligations.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to all brightpath employees, contractors, and system users. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Information Security owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Report suspected incidents immediately; certainty is not required. Examples include phishing, malware warnings, unexpected MFA prompts, exposed credentials, misdirected confidential information, and unusual account activity.
+- Loss or theft of a company device, personal device used for approved work, security key, or storage media is a security incident even when the device is encrypted.
+- Do not investigate, contact a suspected attacker, delete messages, wipe a device, run unapproved tools, or post details in a broad chat channel.
+- If active compromise is suspected, disconnect the network cable or turn off Wi-Fi when safe, but keep the device powered on unless the security responder instructs otherwise.
+- Use the security hotline for urgent events and the security incident form for non-urgent events. A normal IT repair ticket is not sufficient for suspected compromise.
+- Reports should include who observed the event, what happened, affected account or device, time and timezone, actions taken, and where relevant evidence is stored.
+- Information Security assigns severity and coordinates communication. Employees must not notify customers, media, regulators, or external parties unless authorised.
+- Good-faith reporting is encouraged. An employee will not be penalised for reporting a genuine concern that later proves harmless.
+
+4. STANDARD PROCEDURE
+
+1. Move to safety first if the event involves physical threat, fire, or theft in progress.
+2. Stop the risky action, disconnect the affected device from networks when instructed by this procedure, and avoid further changes.
+3. Call the security hotline for active compromise, major data exposure, stolen equipment, or privileged-account impact.
+4. Submit the incident form with facts, screenshots or message files when safe, and a reliable contact number.
+5. Follow responder instructions, preserve evidence, and keep incident details limited to people managing the response.
+6. After closure, complete required password resets, device checks, or awareness actions and record lessons without blaming individuals.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- An employee who entered a password into a suspicious page should close the page, disconnect if advised, report immediately, and change credentials from a trusted device rather than waiting to see whether misuse occurs.
+- Sending an internal salary file to the wrong employee is reportable. The sender should request that the recipient not open it, but must not treat deletion confirmation as a substitute for reporting.
+
+7. SUPPORT AND ESCALATION
+
+Use the 24-hour security hotline for active attacks, stolen devices, exposed credentials, confidential-data disclosure, or privileged systems. If the hotline is unavailable, contact the IT service desk and state clearly that this is a security incident requiring immediate escalation.
+
+8. RELATED DOCUMENTS
+
+Password and MFA Guide; VPN Setup Guide; Laptop and Equipment Policy; Lost or Stolen Device Procedure; Code of Conduct
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

@@ -1,0 +1,60 @@
+LOST OR STOLEN DEVICE PROCEDURE
+===============================
+
+Document ID: SEC-PRO-006
+Version: 1.0
+Owner: Information Security and IT Asset Management
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Anyone responsible for a BrightPath laptop, phone, tablet, security key, or removable storage device
+Status: Approved for academic use
+
+1. PURPOSE
+
+This procedure defines the immediate actions required when a company device or an approved personal device used for work is missing. Fast reporting supports account protection, remote containment, asset recovery, insurance, and privacy assessment.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to anyone responsible for a brightpath laptop, phone, tablet, security key, or removable storage device. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Information Security and IT Asset Management owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Treat a device as lost when its location cannot be confirmed after a brief safe check. Do not postpone reporting until the next working day or until travel has ended.
+- If theft is occurring or personal safety is at risk, move to safety and contact local emergency services. Employees must not confront or pursue a suspected thief.
+- Report the event through the security hotline immediately and provide the asset tag, device type, last known location, time, circumstances, and whether confidential data may have been accessible.
+- Change the corporate password from a trusted device and report any unexpected MFA prompts. Information Security may revoke sessions, tokens, certificates, or application access.
+- Do not use personal tracking features to visit an unknown location. Share available location information only with Security or law enforcement.
+- Information Security decides whether to lock or wipe the device remotely. Employees must not send an unauthorised wipe command when evidence or recovery coordination may be required.
+- A police report may be required for theft, insurance, or local compliance. The employee should obtain a reference number when safe and practical.
+- Finding the device later does not permit immediate reuse. IT must inspect it, remove the lost status, and confirm that accounts and security controls are safe.
+
+4. STANDARD PROCEDURE
+
+1. Move to a safe location and perform only a brief, safe check of the immediate area.
+2. Call the security hotline and provide contact details, asset information, timeline, and data-risk facts.
+3. From a trusted device, change the corporate password and deny unexpected authentication prompts.
+4. Follow instructions about account revocation, remote lock, wipe, tracking, police reporting, and customer notification.
+5. Open an asset replacement request after Security records the incident; include the incident reference rather than repeating sensitive details.
+6. If recovered, keep the device powered off or disconnected as instructed and return it to IT inspection before use.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A laptop left in a taxi must be reported immediately even if the taxi company is contacting the driver. Recovery efforts and security containment can proceed at the same time.
+- A phone used only for the authenticator application still creates account risk. Security should revoke the old MFA registration before a replacement phone is enrolled.
+
+7. SUPPORT AND ESCALATION
+
+The security hotline is the first contact at all hours. IT Asset Management handles replacement only after the incident is recorded. Physical danger or theft in progress goes to local emergency services first; customer or media communication remains the responsibility of authorised company teams.
+
+8. RELATED DOCUMENTS
+
+Laptop and Equipment Policy; Password and MFA Guide; IT Incident Reporting Procedure; Remote Work Policy
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

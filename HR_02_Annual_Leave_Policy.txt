@@ -1,0 +1,60 @@
+ANNUAL LEAVE POLICY
+===================
+
+Document ID: HR-POL-002
+Version: 1.0
+Owner: Human Resources
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Permanent employees on the India payroll
+Status: Approved for academic use
+
+1. PURPOSE
+
+This policy defines annual leave eligibility, accrual, approval, carry-forward, and escalation. It helps employees take planned time away while allowing teams to maintain service coverage and treat requests consistently.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to permanent employees on the india payroll. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. Human Resources owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- Eligible employees receive twenty days of paid annual leave for each complete calendar year, credited monthly at 1.67 days. Employees joining during the year receive a prorated entitlement.
+- Annual leave can be requested after thirty calendar days of employment. During probation, an employee may use accrued leave with manager approval but cannot use leave not yet accrued.
+- Requests for one or two days should be submitted at least three working days in advance. Requests of three or more consecutive days should be submitted at least ten working days in advance.
+- Managers approve requests based on available balance, delivery commitments, and minimum team coverage. Requests must not be rejected solely because another employee at the same grade has requested leave.
+- Up to five unused days may carry into the next calendar year. Carried leave must be used by 31 March; unused carried leave expires unless statutory rules require otherwise.
+- A maximum of ten consecutive working days may normally be taken. Longer periods require approval from the department head and consultation with Human Resources.
+- Public holidays and weekends are not deducted when they fall between approved annual-leave dates, unless the employee's documented work schedule treats those days as normal working days.
+- An employee who becomes medically unfit during annual leave may request reclassification as sick leave by providing acceptable medical evidence within three working days of returning.
+
+4. STANDARD PROCEDURE
+
+1. Check the current annual-leave balance in the HR portal.
+2. Discuss dates with the project or team lead when the absence could affect a release, customer commitment, or on-call rota.
+3. Submit start date, end date, number of working days, contact availability, and handover owner in the portal.
+4. Wait for recorded approval before purchasing non-refundable travel or treating the request as confirmed.
+5. Prepare a handover covering active work, deadlines, risks, and emergency contacts.
+6. On return, correct any balance discrepancy through People Help within ten working days.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- An employee with four accrued days requesting five days during probation may receive approval for four paid days and one unpaid day only after HR confirms the arrangement.
+- Two employees requesting the same festival week should be assessed against service coverage and submission timing. The manager should discuss alternatives rather than rejecting both automatically.
+
+7. SUPPORT AND ESCALATION
+
+First discuss a delayed or rejected request with the reporting manager. If the reason appears inconsistent with this policy, open a confidential People Help case within five working days. HR reviews the balance, coverage evidence, and comparable decisions; HR does not guarantee approval of the original dates.
+
+8. RELATED DOCUMENTS
+
+Employee Onboarding Guide; Remote Work Policy; Travel and Expense Policy
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.

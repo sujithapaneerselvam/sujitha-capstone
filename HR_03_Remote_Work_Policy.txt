@@ -1,0 +1,60 @@
+REMOTE WORK POLICY
+==================
+
+Document ID: HR-POL-003
+Version: 1.0
+Owner: People Operations and Information Security
+Effective date: 1 August 2026
+Review date: 1 August 2027
+Classification: Internal
+Applies to: Employees whose role is approved for hybrid or remote work in India
+Status: Approved for academic use
+
+1. PURPOSE
+
+This policy sets expectations for working away from a BrightPath office. It balances flexibility with collaboration, security, customer commitments, workplace safety, and legal restrictions on working from another location.
+
+2. SCOPE AND RESPONSIBILITIES
+
+This document applies to employees whose role is approved for hybrid or remote work in india. Employees are responsible for reading the relevant requirements, providing accurate information, and completing required actions on time. Managers confirm business need, coverage, and approvals. People Operations and Information Security owns this document, answers interpretation questions, and reviews exceptions. Supporting teams may perform operational steps, but they do not change the policy without the owner's approval.
+
+3. POLICY REQUIREMENTS
+
+- A role is classified as office-based, hybrid, or remote in the employment record. Hybrid employees normally attend their assigned office at least two agreed days each week.
+- A manager may adjust office days for business needs with reasonable notice. Permanent changes to work classification require People Operations approval and an updated employment record.
+- Employees must work from a private, safe location with reliable internet and must remain reachable during agreed collaboration hours from 10:00 a.m. to 4:00 p.m. IST.
+- Corporate information may be accessed only through approved accounts and devices. VPN and MFA are mandatory when connecting from a public or shared network.
+- Confidential meetings must not be conducted where unauthorised people can hear the discussion. Printed confidential information must be avoided outside an approved office.
+- Working temporarily from another Indian state for more than fifteen consecutive days requires manager and People Operations approval before travel.
+- Working from outside India is not automatically permitted. Employees must obtain written approval from People Operations, Information Security, Tax, and their department head before making arrangements.
+- Remote work is not a substitute for dependent care during working hours. Employees should agree a temporary schedule or request appropriate leave when sustained care is required.
+
+4. STANDARD PROCEDURE
+
+1. Confirm that the role and current work classification permit the requested arrangement.
+2. Discuss attendance, collaboration hours, customer coverage, security, and deliverables with the manager.
+3. Submit temporary-location requests in the HR portal at least ten working days before the proposed start.
+4. Complete the workstation safety checklist and verify VPN, MFA, device encryption, and screen-lock settings.
+5. Keep the calendar and work location accurate so colleagues know how to contact the employee.
+6. Report security events, equipment loss, or prolonged connectivity failure immediately using the appropriate IT procedure.
+
+5. EXCEPTIONS AND RECORDS
+
+An exception must be requested before the employee acts outside this document, unless personal safety or an active incident requires immediate action. The request should state the requirement, business reason, duration, risk, and proposed safeguard. Approval must come from the document owner and any security, legal, finance, privacy, or department authority identified during review. Silence, verbal discussion, past practice, or urgency is not approval. Relevant requests, decisions, receipts, acknowledgements, and incident references must be stored only in the approved corporate system and retained according to the records schedule.
+
+6. PRACTICAL EXAMPLES
+
+- A hybrid employee may work from a parent's home in another Indian city for ten days after manager approval, provided customer coverage and security requirements are maintained.
+- An employee cannot assume permission to work from another country while on a tourist visit. The request needs tax, immigration, security, HR, and department approval before travel.
+
+7. SUPPORT AND ESCALATION
+
+Questions about role eligibility or location approval go to People Help. Security concerns go immediately to the IT incident channel. If a manager and employee cannot agree on a hybrid schedule, the department head and People Operations review the role requirements and documented business impact.
+
+8. RELATED DOCUMENTS
+
+Annual Leave Policy; Password and MFA Guide; VPN Setup Guide; Lost or Stolen Device Procedure
+
+ACADEMIC USE NOTICE
+
+This document contains fictional organisational information created for an academic Enterprise Knowledge Assistant capstone. It is not a policy of a real employer and must not be used for actual employment, legal, medical, tax, financial, or security decisions.
