@@ -15,7 +15,7 @@ from __future__ import annotations
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import time
-
+from pathlib import Path
 import httpx
 
 from src.eval.golden import load_golden
@@ -40,13 +40,21 @@ def main() -> None:
         answer  = data["content"]
         sources = data.get("sources", [])
         # retrieval hit: did a chunk from the expected source doc get retrieved?
-        stems = {s.split("#")[0] for s in sources}
-        hit = 1 if (g.expected_source and g.expected_source in stems) else 0
+        retrieved_stems = {
+          Path(s.split("#")[0]).stem
+          for s in sources
+        }
+        expected_stems = {
+          Path(source).stem 
+          for source in g.expected_source
+        }
+        matching_source = expected_stems &  retrieved_stems
+        hit = 1 if matching_source else 0
         hits += hit
 
         store.write_rag_run(con, run_id, g.id, g.question, answer, sources,
                             hit, latency_ms, data.get("cost_usd", 0.0))
-        print(f"{g.id}: hit={hit} sources={sorted(stems)}  | {answer[:55]}")
+        print(f"{g.id}: hit={hit} sources={sorted(retrieved_stems)}  | {answer[:55]}")
 
     n = len(golden)
     print(f"\nrun_id={run_id}  retrieval hit rate = {hits}/{n}  "

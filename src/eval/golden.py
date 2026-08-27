@@ -17,7 +17,8 @@ class GoldenEntry(BaseModel):
     ideal_answer: str = Field(min_length=1)
     notes:           str = ""
     must_mention:    list[str] = []       # facts a good answer should contain
-    expected_source: str = ""             # W6: corpus doc that should be retrieved (for hit rate)
+    expected_source: list[str] = Field(default_factory=list)            # W6: corpus doc that should be retrieved (for hit rate)
+    verification_status: str
 
 
 def load_golden(path: str | Path = "data/golden_set.jsonl") -> list[GoldenEntry]:

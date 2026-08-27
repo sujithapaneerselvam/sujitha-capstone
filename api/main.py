@@ -23,14 +23,17 @@ from pydantic import BaseModel
 from src.pipeline.pipeline import ask_llm as _pipeline_ask_llm
 from src.pipeline.pipeline import stream_answer as _pipeline_stream
 from src.pipeline.pipeline import Question as _PipelineQuestion
-
+import os
 # W6: naive RAG retrieval. Load the index once at startup; if it's missing
 # (not built yet), fall back to answering from training data.
 try:
     from src.rag.naive_rag import load_index, retrieve
-    _RAG_INDEX = load_index()
+    RAG_INDEX_PATH = os.getenv("RAG_INDEX_PATH","data/embeddings.json")
+    _RAG_INDEX = load_index(RAG_INDEX_PATH)
+    print(f"Loaded {len(_RAG_INDEX)} chunks")
     logging.getLogger(__name__).info("RAG index loaded: %d chunks", len(_RAG_INDEX))
-except Exception as _e:  # index not built yet -> app still works, just ungrounded
+except (FileNotFoundError, ImportError) as error:  # index not built yet -> app still works, just ungrounded
+    print(f"RAG index unavailable: {error}")
     _RAG_INDEX = None
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")

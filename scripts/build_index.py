@@ -12,14 +12,42 @@ from __future__ import annotations
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from src.rag.naive_rag import build_index, save_index, INDEX_PATH, CORPUS_DIR
-
+import argparse
+def parse_args() -> argparse.Namespace:
+  parser = argparse.ArgumentParser(
+    description = "Build a rag"
+  )
+  parser.add_argument(
+    "--corpus",
+    default = CORPUS_DIR,
+    help = "Directory contaning corpus files",
+  )
+  parser.add_argument(
+    "--size",
+    type = int,
+    default = 500,
+    help ="size of the chunks in characters",
+  )
+  parser.add_argument(
+    "--overlap",
+    type = int,
+    default=50,
+    help = "chunk overlap in characters ",
+  )
+  parser.add_argument(
+    "--out",
+    default = INDEX_PATH,
+    help ="output index json file",
+  )
+  return parser.parse_args()
 
 def main() -> None:
-    index = build_index(CORPUS_DIR)
-    save_index(index, INDEX_PATH)
-    sources = sorted({c["source_id"] for c in index})
-    print(f"Indexed {len(index)} chunks from {len(sources)} docs -> {INDEX_PATH}")
-    print("sources:", ", ".join(sources))
+  args = parse_args()
+  index = build_index(corpus_dir=args.corpus, size=args.size, overlap=args.overlap,)
+  save_index(index, args.out)
+  sources = sorted({c["source_id"] for c in index})
+  print(f"Indexed {len(index)} chunks from {len(sources)} docs -> {args.out} ")
+  print("sources:", ", ".join(sources))
 
 
 if __name__ == "__main__":
