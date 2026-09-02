@@ -23,18 +23,31 @@ from pydantic import BaseModel
 from src.pipeline.pipeline import ask_llm as _pipeline_ask_llm
 from src.pipeline.pipeline import stream_answer as _pipeline_stream
 from src.pipeline.pipeline import Question as _PipelineQuestion
+from dotenv import load_dotenv
+from src.rag.qdrant_store import load_store,collection_size
+from src.rag.qdrant_rag import retrieve
 import os
-# W6: naive RAG retrieval. Load the index once at startup; if it's missing
-# (not built yet), fall back to answering from training data.
-try:
-    from src.rag.naive_rag import load_index, retrieve
-    RAG_INDEX_PATH = os.getenv("RAG_INDEX_PATH","data/embeddings.json")
-    _RAG_INDEX = load_index(RAG_INDEX_PATH)
-    print(f"Loaded {len(_RAG_INDEX)} chunks")
-    logging.getLogger(__name__).info("RAG index loaded: %d chunks", len(_RAG_INDEX))
-except (FileNotFoundError, ImportError) as error:  # index not built yet -> app still works, just ungrounded
-    print(f"RAG index unavailable: {error}")
-    _RAG_INDEX = None
+
+load_dotenv(
+    "/voc/work/Demo Files/AI-RAG_W7_TrackAB_Bundle/.env"
+)
+
+_RAG_STORE = load_store()
+point_count = collection_size(_RAG_STORE)
+if point_count == 0:
+    raise RuntimeError("qdrant collection is empty. Run the migration first.")
+print(f"Qdrant collection loaded: {point_count} points")
+# # W6: naive RAG retrieval. Load the index once at startup; if it's missing
+# # (not built yet), fall back to answering from training data.
+# try:
+#     from src.rag.naive_rag import load_index, retrieve
+#     RAG_INDEX_PATH = os.getenv("RAG_INDEX_PATH","data/embeddings_small.json")
+#    # _RAG_INDEX = load_index(RAG_INDEX_PATH)--PART of week6
+#     #print(f"Loaded {len(_RAG_INDEX)} chunks")
+#    # logging.getLogger(__name__).info("RAG index loaded: %d chunks", len(_RAG_INDEX))
+# except (FileNotFoundError, ImportError) as error:  # index not built yet -> app still works, just ungrounded
+#     print(f"RAG index unavailable: {error}")
+#     #_RAG_INDEX = None
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)s  %(message)s")
 log = logging.getLogger(__name__)
@@ -84,12 +97,16 @@ async def ask_batched(q: Question) -> Answer:
     log.info("ask_batched  question=%r", q.question[:80])
     pipeline_q = _PipelineQuestion(text=q.question)
 
-    context, sources = None, None
-    if _RAG_INDEX:                                    # W6: retrieve before answering
-        hits = retrieve(q.question, _RAG_INDEX, k=3)
-        context = "\n\n".join(f"[{h['chunk_id']}]\n{h['text']}" for h in hits)
-        sources = [h["chunk_id"] for h in hits]
-
+    # context, sources = None, None
+    # if _RAG_INDEX:                                    # W6: retrieve before answering
+    #     hits = retrieve(q.question, _RAG_INDEX, k=3)
+    #     context = "\n\n".join(f"[{h['chunk_id']}]\n{h['text']}" for h in hits)
+    #     sources = [h["chunk_id"] for h in hits]
+    hits = await asyncio.to_thread(
+        retrieve,_RAG_STORE,q.question,k=10,
+    )
+    context = "\n\n".join(f"[{hit['chunk_id']}]\n{hit['text']}" for hit in hits)
+    sources = [hit["chunk_id"] for hit in hits]
     pipeline_ans = await _pipeline_ask_llm(pipeline_q, context=context, sources=sources)
     return Answer(
         content=pipeline_ans.text,
