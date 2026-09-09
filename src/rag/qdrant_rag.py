@@ -8,9 +8,10 @@ from __future__ import annotations
 from typing import Any
 
 from openai import OpenAI
-
+from pathlib import Path
 from src.pipeline.settings import Settings
-from src.rag.qdrant_store import QdrantStore, load_store
+# from src.rag.qdrant_store import QdrantStore, load_store
+from src.rag.qdrant_store import _get_client
 
 CHAT_MODEL = "gpt-4o-mini"
 EMBED_MODEL = "text-embedding-3-small"
@@ -40,12 +41,15 @@ def retrieve(store: QdrantStore, query: str, k: int = 10) -> list[dict[str, Any]
     ).points
     return [
         {
-            "chunk_id":  h.payload["chunk_id"],
-            "source_id": h.payload["source_id"],
-            "text":      h.payload["text"],
-            "score":     h.score,
+            "chunk_id":  hits.payload["chunk_id"],
+            "source_id": (
+                hits.payload.get("source_id")
+                or Path(hits.payload.get("source", "unknown")).stem
+            ),
+            "text":      hits.payload["text"],
+            "score":     hits.score,
         }
-        for h in results
+        for hits in results
     ]
 
 
@@ -86,3 +90,7 @@ def ask_rag(question: str, store: QdrantStore | None = None,
         "tokens_in":  resp.usage.prompt_tokens,
         "tokens_out": resp.usage.completion_tokens,
     }
+def load_store():
+    """Load a store pointing at the v2 collection."""
+    from src.rag.qdrant_store import QdrantStore
+    return QdrantStore(client=_get_client(), collection="capstone_chunks_v2")

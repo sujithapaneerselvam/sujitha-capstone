@@ -77,15 +77,11 @@ def upsert_chunks(store: QdrantStore, chunks: list[dict], vectors: list[list[flo
         PointStruct(
             id=idx,
             vector=vec,
-            payload={
-                "chunk_id":  chunk["chunk_id"],
-                "source_id": chunk["source_id"],
-                "text":      chunk["text"],
-            },
+            payload = {k: v for k, v in chunk.items() if k != "vector"}
         )
         for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
     ]
-    store.client.upsert(collection_name=store.collection, points=points)
+    store.client.upsert(collection_name=store.collection, points=points,wait=True,)
 
 
 def collection_size(store: QdrantStore) -> int:
@@ -93,3 +89,15 @@ def collection_size(store: QdrantStore) -> int:
     info = store.client.get_collection(store.collection)
     return info.points_count
 
+def upsert_chunks_v2(store: QdrantStore, chunks: list[dict], vectors: list[list[float]]) -> None:
+    """Upsert with the full 9-field metadata payload from W8's pipeline.
+    
+    chunks[i] is a dict with keys: chunk_id, source, doc_type, section_path,
+    page, date, language, version, ingested_at, text, pii_flags_count.
+    """
+    from qdrant_client.models import PointStruct
+    points = [
+        PointStruct(id=idx, vector=vec, payload=chunk)
+        for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
+    ]
+    store.client.upsert(collection_name=store.collection, points=points,wait=True,)
