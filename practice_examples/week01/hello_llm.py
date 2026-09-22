@@ -19,7 +19,7 @@ def ask(question: str) -> str:
             {"role": "system", "content": "You are concise."},
             {"role": "user", "content": question},
         ],
-        temperature=0.3,
+        temperature=0.1,
     )
     return response.choices[0].message.content
 
