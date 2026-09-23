@@ -121,22 +121,16 @@ def scrub_pii(text: str) -> tuple[str, list[dict]]:
     # Leg 2: Presidio
     analyzer = _get_analyzer()
     anonymizer = _get_anonymizer()
-    results = analyzer.analyze(text=scrubbed, language="en", entities=[
-            "PERSON",
-            "EMAIL_ADDRESS",
-            "PHONE_NUMBER",
-            "IBAN_CODE",
-            "CREDIT_CARD",
+    results = analyzer.analyze(
+        text=scrubbed,
+        language="en",
+        entities=[
+            "PERSON", "EMAIL_ADDRESS", "PHONE_NUMBER",
+            "IBAN_CODE", "CREDIT_CARD",
         ],
-        score_threshold=0.5,)
-    if results:
-        anonymized = anonymizer.anonymize(text=scrubbed, analyzer_results=results)
-        scrubbed = anonymized.text
-        # for r in results:
-        #     flags.append({"source": "presidio", "type": r.entity_type,
-        #                  "matched": text[r.start:r.end], "score": r.score})
-    # Record detections before anonymization because offsets refer
-    # to the current scrubbed string.
+        score_threshold=0.5,
+    )
+
     for result in results:
         flags.append({
             "source": "presidio",
@@ -146,8 +140,11 @@ def scrub_pii(text: str) -> tuple[str, list[dict]]:
         })
 
     if results:
-        anonymized = anonymizer.anonymize(text=scrubbed,analyzer_results=results,)
-        scrubbed = anonymized.text
+        scrubbed = anonymizer.anonymize(
+            text=scrubbed,
+            analyzer_results=results,
+        ).text
+
     return scrubbed, flags
 
 

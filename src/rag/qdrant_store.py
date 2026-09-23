@@ -17,7 +17,7 @@ from qdrant_client.models import (
 )
 
 # COLLECTION_NAME = "capstone_chunks_large"
-COLLECTION_NAME = "capstone_chunks"
+COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "capstone_chunks_v2")
 EMBEDDING_DIM = 1536  # text-embedding-3-small
 # EMBEDDING_DIM = 3072 #text-embedding-3-large
 

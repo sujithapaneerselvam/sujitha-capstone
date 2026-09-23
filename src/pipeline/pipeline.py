@@ -22,7 +22,11 @@ from pathlib import Path
 
 from .logging_config import get_logger
 from .settings import Settings, RunSummary
-
+from qdrant_client.models import (
+    FieldCondition, Filter, IsEmptyCondition,   # NOT IsNullCondition
+    MatchValue, PayloadField, PointStruct,
+)
+from src.rag import cache
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Logger — shared across the package
@@ -299,3 +303,112 @@ if __name__ == "__main__":
         run_id = write_run(con, summary)
         n      = write_answers(con, run_id, answers, model=settings.model)
     log.info(f"persisted run {run_id} with {n} answers to {settings.results_db}")
+
+def tombstone_source(store, source: str) -> int:
+    """Mark all live chunks whose payload.source == source as tombstoned.
+    Uses IsEmptyCondition — matches whether deleted_at is absent, null, or
+    empty. IsNullCondition would only match explicit-null values and misses
+    absent fields (silent bug). See W10 Day 2 Cell 4 for the diagnosis.
+    Returns count of chunks tombstoned.
+    """
+    flt = Filter(must=[
+        FieldCondition(key="source", match=MatchValue(value=source)),
+        IsEmptyCondition(is_empty=PayloadField(key="deleted_at")),
+    ])
+    pre_count = store.client.count(
+        collection_name=store.collection,
+        count_filter=flt, exact=True,
+    ).count
+    store.client.set_payload(
+        collection_name=store.collection,
+        payload={"deleted_at": time.time()},
+        points=flt,
+        wait=True,
+    )
+    return pre_count
+
+
+def ingest_or_update_source(
+    store,
+    source: str,
+    body: str,
+    doc_type: str = "general",
+    clear_cache_after: bool = True,
+) -> dict:
+    """Prepare replacement chunks, then tombstone, insert, and clear cache."""
+    import uuid
+    from pathlib import Path
+
+    from qdrant_client.models import PointStruct
+    from src.ingest.pipeline import chunk_document, enrich_metadata, scrub_pii
+    from src.rag import cache
+
+    if store.collection != "capstone_chunks_v2":
+        raise ValueError(f"Unexpected collection: {store.collection}")
+
+    # Prepare everything before touching existing Qdrant points.
+    source_path = Path(source)
+    chunk_texts = chunk_document(body, max_size=400)
+
+    chunks = []
+    for index, text in enumerate(chunk_texts):
+        scrubbed, flags = scrub_pii(text)
+        if scrubbed.strip():
+            chunks.append(
+                enrich_metadata(
+                    scrubbed,
+                    source_path,
+                    index,
+                    len(flags),
+                )
+            )
+
+    if not chunks:
+        raise ValueError(f"No usable chunks produced for {source}")
+
+    # The W8 pipeline has no embed_texts() helper, so use its OpenAI client.
+    from src.ingest.pipeline import _get_openai
+
+    vectors = []
+    client = _get_openai()
+    for start in range(0, len(chunks), 100):
+        batch = chunks[start:start + 100]
+        response = client.embeddings.create(
+            model="text-embedding-3-small",
+            input=[chunk["text"] for chunk in batch],
+        )
+        vectors.extend(item.embedding for item in response.data)
+
+    if len(vectors) != len(chunks):
+        raise RuntimeError("Embedding count does not match chunk count")
+
+    points = [
+        PointStruct(
+            id=str(uuid.uuid4()),
+            vector=vector,
+            payload={
+                **chunk,
+                "source": source,
+                "doc_type": source_path.suffix.lstrip(".") or doc_type,
+            },
+        )
+        for chunk, vector in zip(chunks, vectors)
+    ]
+
+    # Qdrant writes happen only after parsing, scrubbing, and embedding succeed.
+    n_tombstoned = tombstone_source(store, source)
+    store.client.upsert(
+        collection_name=store.collection,
+        points=points,
+        wait=True,
+    )
+
+    n_cleared = cache.clear() if clear_cache_after else 0
+
+    return {
+        "tombstoned": n_tombstoned,
+        "ingested": len(points),
+        "cache_cleared": n_cleared,
+    }
+
+
