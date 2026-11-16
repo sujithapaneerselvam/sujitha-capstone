@@ -101,3 +101,19 @@ def upsert_chunks_v2(store: QdrantStore, chunks: list[dict], vectors: list[list[
         for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
     ]
     store.client.upsert(collection_name=store.collection, points=points,wait=True,)
+def get_qdrant_client() -> QdrantClient:
+    """Public client factory used by the API."""
+    return _get_client()
+
+def embed_one(
+    text: str,
+    model: str = "text-embedding-3-small",
+) -> list[float]:
+    """Return an embedding for one query."""
+    from openai import OpenAI
+
+    response = OpenAI().embeddings.create(
+        model=model,
+        input=[text],
+    )
+    return response.data[0].embedding

@@ -1,111 +1,213 @@
+"""src/rag/cache.py — Semantic query cache (Week 10).
+
+Three-layer caching strategy:
+  Layer 1 (this file): Semantic cache — SQLite-backed, cosine ≥ 0.95.
+      If a new question's embedding is close enough to a cached question,
+      return the cached answer instantly (no retrieve/generate).
+  Layer 2: Prompt cache — automatic from OpenAI (50% off repeated prefixes).
+  Layer 3: Embedding cache — file-system cache in qdrant_store.py (W7).
+
+Cache invalidation rules (NON-NEGOTIABLE):
+  - Clear on EVERY document update (tombstone or re-ingest).
+  - Tag each entry with kb_version — reject mismatches on lookup.
+  - Never serve a stale answer — when in doubt, miss.
+
+Usage:
+    from src.rag.cache import SemanticCache
+    cache = SemanticCache("results.db")
+    hit = cache.lookup(query_vector, kb_version="v2.w10", threshold=0.95)
+    if hit:
+        return hit["answer"]  # skip retrieve + generate
+    else:
+        answer = run_full_pipeline(question)
+        cache.store(query_vector, question, answer, kb_version="v2.w10")
+"""
 from __future__ import annotations
 
-import hashlib
-import math
+import json
 import sqlite3
-import struct
 import time
 from pathlib import Path
 
-CACHE_DB_DEFAULT = "./results.db"   # reuse the file W2 created
-DEFAULT_THRESHOLD = 0.95           # deck default; do not lower without measuring
+import numpy as np
 
 
-def _connect(db_path: str = CACHE_DB_DEFAULT) -> sqlite3.Connection:
-    conn = sqlite3.connect(db_path)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS query_cache (
-            id             TEXT PRIMARY KEY,
-            question       TEXT NOT NULL,
-            embedding_blob BLOB NOT NULL,
-            answer         TEXT NOT NULL,
-            hit_count      INTEGER NOT NULL DEFAULT 0,
-            created_ts     REAL NOT NULL,
-            last_hit_ts    REAL
-        )
-    """)
-    conn.commit()
-    return conn
+# ── Schema ────────────────────────────────────────────────────
+
+_SCHEMA = """
+CREATE TABLE IF NOT EXISTS query_cache (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    question     TEXT    NOT NULL,
+    answer       TEXT    NOT NULL,
+    vector_json  TEXT    NOT NULL,
+    kb_version   TEXT    NOT NULL,
+    created_at   REAL    NOT NULL,
+    hit_count    INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS query_cache_meta (
+    key   TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+"""
 
 
-def _key(question: str) -> str:
-    return hashlib.sha256(question.lower().strip().encode()).hexdigest()[:16]
+class SemanticCache:
+    """SQLite-backed semantic query cache with cosine similarity matching."""
 
+    def __init__(self, db_path: str | Path = "results.db"):
+        self.db_path = str(db_path)
+        self._init_db()
 
-def _cosine(a: list[float], b: list[float]) -> float:
-    dot = sum(x*y for x, y in zip(a, b))
-    na  = math.sqrt(sum(x*x for x in a))
-    nb  = math.sqrt(sum(y*y for y in b))
-    return dot / (na * nb) if na and nb else 0.0
+    def _init_db(self) -> None:
+        conn = sqlite3.connect(self.db_path)
+        try:
+            conn.executescript(_SCHEMA)
+            columns = {
+                            row[1]
+                            for row in conn.execute("PRAGMA table_info(query_cache)")
+                        }
+            if "citations_json" not in columns:
+                    conn.execute(   "ALTER TABLE query_cache ADD COLUMN citations_json TEXT" )
+            conn.commit()
+        finally:
+            conn.close()
 
+    # ── Lookup ────────────────────────────────────────────────
 
-def lookup(question_embedding: list[float],
-           threshold: float = DEFAULT_THRESHOLD,
-           db_path: str = CACHE_DB_DEFAULT) -> dict | None:
-    """Return {answer, similarity, matched_question} on hit; None on miss."""
-    conn = _connect(db_path)
-    try:
-        best_score, best = -1.0, None
-        for row in conn.execute(
-            "SELECT id, question, embedding_blob, answer FROM query_cache"
-        ):
-            row_id, row_q, blob, ans = row
-            n = len(blob) // 4
-            emb = list(struct.unpack(f"{n}f", blob))
-            s = _cosine(question_embedding, emb)
-            if s > best_score:
-                best_score, best = s, (row_id, row_q, ans)
-        if best is None or best_score < threshold:
+    def lookup(
+        self,
+        query_vector: list[float],
+        kb_version: str,
+        threshold: float = 0.95,
+    ) -> dict | None:
+        """Find a cached answer with cosine similarity ≥ threshold.
+
+        Returns {"answer", "matched_question", "similarity", "cache_hit": True}
+        or None on miss.
+        """
+        conn = sqlite3.connect(self.db_path)
+        try:
+            rows = conn.execute(
+                "SELECT id, question, answer, vector_json, citations_json "
+                "FROM query_cache WHERE kb_version = ?",
+                (kb_version,),
+            ).fetchall()
+
+            if not rows:
+                return None
+
+            q_vec = np.array(query_vector, dtype=np.float32)
+            q_norm = np.linalg.norm(q_vec)
+            if q_norm == 0:
+                return None
+
+            best_sim = -1.0
+            best_row = None
+
+            for row_id, question, answer, vec_json, citations_json in rows:
+                # Old entries lack evidence metadata: treat them as misses.
+                if citations_json is None:
+                    continue
+
+                try:
+                    citations = json.loads(citations_json)
+                except (TypeError, ValueError):
+                    continue
+
+                if not isinstance(citations, list):
+                    continue
+                cached_vec = np.array(json.loads(vec_json), dtype=np.float32)
+                c_norm = np.linalg.norm(cached_vec)
+                if c_norm == 0:
+                    continue
+                sim = float(np.dot(q_vec, cached_vec) / (q_norm * c_norm))
+                if sim > best_sim:
+                    best_sim = sim
+                    best_row = (row_id, question, answer, citations)
+
+            if best_row and best_sim >= threshold:
+                row_id, question, answer, citations = best_row
+                conn.execute(
+                    "UPDATE query_cache SET hit_count = hit_count + 1 WHERE id = ?",
+                    (row_id,),
+                )
+                conn.commit()
+                return {
+                    "answer": answer,
+                    "matched_question": question,
+                    "similarity": round(best_sim, 4),
+                    "cache_hit": True,
+                    "citations": citations,
+                }
+
             return None
-        row_id, matched_q, cached_ans = best
-        conn.execute(
-            "UPDATE query_cache SET hit_count=hit_count+1, last_hit_ts=? WHERE id=?",
-            (time.time(), row_id),
-        )
-        conn.commit()
-        return {
-            "answer":            cached_ans,
-            "matched_question":  matched_q,
-            "similarity":        best_score,
-        }
-    finally:
-        conn.close()
+        finally:
+            conn.close()
 
+    # ── Store ─────────────────────────────────────────────────
 
-def put(question: str, embedding: list[float], answer: str,
-        db_path: str = CACHE_DB_DEFAULT) -> None:
-    conn = _connect(db_path)
-    try:
-        blob = struct.pack(f"{len(embedding)}f", *embedding)
-        conn.execute("""
-            INSERT OR REPLACE INTO query_cache
-            (id, question, embedding_blob, answer, hit_count, created_ts, last_hit_ts)
-            VALUES (?, ?, ?, ?, 0, ?, NULL)
-        """, (_key(question), question, blob, answer, time.time()))
-        conn.commit()
-    finally:
-        conn.close()
+    def store(self,query_vector: list[float],question: str,answer: str,kb_version: str,citations: list[dict] | None = None,) -> None:
+        conn = sqlite3.connect(self.db_path)
+        try:
+            conn.execute(
+                """INSERT INTO query_cache
+                (question, answer, vector_json, kb_version,
+                created_at, citations_json)
+                VALUES (?, ?, ?, ?, ?, ?)""",
+                (
+                    question,
+                    answer,
+                    json.dumps(query_vector),
+                    kb_version,
+                    time.time(),
+                    json.dumps(citations) if citations is not None else None,
+                ),
+            )
+            conn.commit()
+        finally:
+            conn.close()
 
+    # ── Invalidation (NON-NEGOTIABLE on every doc update) ────
 
-def clear(db_path: str = CACHE_DB_DEFAULT) -> int:
-    """Wipe all cache entries. Call this after any document update."""
-    conn = _connect(db_path)
-    try:
-        cur = conn.execute("DELETE FROM query_cache")
-        conn.commit()
-        return cur.rowcount
-    finally:
-        conn.close()
+    def clear(self, kb_version: str | None = None) -> int:
+        """Clear cache entries. If kb_version given, clear only that version.
 
+        Call this on EVERY document update — tombstone, re-ingest, or delete.
+        """
+        conn = sqlite3.connect(self.db_path)
+        try:
+            if kb_version:
+                result = conn.execute(
+                    "DELETE FROM query_cache WHERE kb_version = ?",
+                    (kb_version,),
+                )
+            else:
+                result = conn.execute("DELETE FROM query_cache")
+            conn.commit()
+            return result.rowcount
+        finally:
+            conn.close()
 
-def stats(db_path: str = CACHE_DB_DEFAULT) -> dict:
-    """For dashboards: total entries, total hits, average similarity of hits."""
-    conn = _connect(db_path)
-    try:
-        row = conn.execute("""
-            SELECT COUNT(*), COALESCE(SUM(hit_count), 0)
-            FROM query_cache
-        """).fetchone()
-        return {"n_entries": row[0], "total_hits": row[1]}
-    finally:
-        conn.close()
+    def clear_all(self) -> int:
+        """Clear ALL cache entries regardless of version."""
+        return self.clear(kb_version=None)
+
+    # ── Stats ─────────────────────────────────────────────────
+
+    def stats(self) -> dict:
+        """Return cache statistics."""
+        conn = sqlite3.connect(self.db_path)
+        try:
+            total = conn.execute("SELECT COUNT(*) FROM query_cache").fetchone()[0]
+            total_hits = conn.execute("SELECT COALESCE(SUM(hit_count), 0) FROM query_cache").fetchone()[0]
+            versions = conn.execute(
+                "SELECT kb_version, COUNT(*) FROM query_cache GROUP BY kb_version"
+            ).fetchall()
+            return {
+                "total_entries": total,
+                "total_hits": total_hits,
+                "versions": {v: c for v, c in versions},
+            }
+        finally:
+            conn.close()
