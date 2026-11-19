@@ -1,0 +1,30 @@
+Week 13 — Tool-selection evaluation
+Mode: offline stub (StubRouter)
+Dataset: 15 labelled questions
+Scope: Lab verification only; live KPI #5 was not measured.
+
+
+  id        expected     chosen       ok
+  --------------------------------------------
+  calc_1    calculate    calculate    ✓
+  calc_2    calculate    calculate    ✓
+  calc_3    calculate    calculate    ✓
+  calc_4    calculate    calculate    ✓
+  calc_5    calculate    calculate    ✓
+  sql_1     query_sql    query_sql    ✓
+  sql_2     query_sql    query_sql    ✓
+  sql_3     query_sql    query_sql    ✓
+  sql_4     query_sql    query_sql    ✓
+  sql_5     query_sql    query_sql    ✓
+  web_1     search_web   search_web   ✓
+  web_2     search_web   search_web   ✓
+  web_3     search_web   search_web   ✓
+  web_4     search_web   search_web   ✓
+  web_5     search_web   search_web   ✓
+  --------------------------------------------
+
+  Tool-selection accuracy: 1.0  (15/15)
+    calculate    1.0
+    query_sql    1.0
+    search_web   1.0
+

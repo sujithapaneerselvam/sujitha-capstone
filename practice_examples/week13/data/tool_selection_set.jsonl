@@ -1,0 +1,15 @@
+{"id": "calc_1", "question": "What is 1350 * 0.18?", "expected_tool": "calculate"}
+{"id": "calc_2", "question": "Calculate 4200 / 12.", "expected_tool": "calculate"}
+{"id": "calc_3", "question": "How much is 15% of 890?", "expected_tool": "calculate"}
+{"id": "calc_4", "question": "What is (320 + 480) * 2?", "expected_tool": "calculate"}
+{"id": "calc_5", "question": "What is 900 - 275?", "expected_tool": "calculate"}
+{"id": "sql_1", "question": "How many documents are in the knowledge base?", "expected_tool": "query_sql"}
+{"id": "sql_2", "question": "How many HR documents do we have?", "expected_tool": "query_sql"}
+{"id": "sql_3", "question": "Which department has the most documents?", "expected_tool": "query_sql"}
+{"id": "sql_4", "question": "What version is the Acceptable Use Policy?", "expected_tool": "query_sql"}
+{"id": "sql_5", "question": "List the Finance documents and when they were last updated.", "expected_tool": "query_sql"}
+{"id": "web_1", "question": "What is the latest news on AI agents in 2026?", "expected_tool": "search_web"}
+{"id": "web_2", "question": "What is the current price of the OpenAI API for gpt-4o-mini?", "expected_tool": "search_web"}
+{"id": "web_3", "question": "Who won the most recent Cricket World Cup?", "expected_tool": "search_web"}
+{"id": "web_4", "question": "What are the trending Python libraries this year?", "expected_tool": "search_web"}
+{"id": "web_5", "question": "What did OpenAI announce today?", "expected_tool": "search_web"}
