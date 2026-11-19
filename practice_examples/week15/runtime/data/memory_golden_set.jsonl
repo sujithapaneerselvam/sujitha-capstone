@@ -1,0 +1,9 @@
+{"id": "Q1", "kind": "preference", "memory_effect": "helps", "question": "Summarise the leave policy in my usual format.", "seed": {"preferred_format": "bullets"}, "relevant_key": "preferred_format"}
+{"id": "Q2", "kind": "preference", "memory_effect": "helps", "question": "Give me the expense policy the way I like it.", "seed": {"preferred_format": "bullets"}, "relevant_key": "preferred_format"}
+{"id": "Q3", "kind": "stateless", "memory_effect": "neutral", "question": "What is 15% of 240?", "seed": {"name": "Asha", "team": "HR", "tenure": "3 years", "preferred_format": "bullets"}, "relevant_key": null}
+{"id": "Q4", "kind": "stateless", "memory_effect": "neutral", "question": "How many HR documents are in the knowledge base?", "seed": {"name": "Asha", "team": "HR", "tenure": "3 years", "preferred_format": "bullets"}, "relevant_key": null}
+{"id": "Q5", "kind": "stateless", "memory_effect": "neutral", "question": "What is the standard notice period?", "seed": {"name": "Asha", "team": "HR", "tenure": "3 years", "preferred_format": "bullets"}, "relevant_key": null}
+{"id": "Q6", "kind": "stateless", "memory_effect": "neutral", "question": "Convert 90 minutes to hours.", "seed": {"name": "Asha", "team": "HR", "tenure": "3 years", "preferred_format": "bullets"}, "relevant_key": null}
+{"id": "Q7", "kind": "stateless", "memory_effect": "neutral", "question": "What does the acronym PTO stand for?", "seed": {"name": "Asha", "team": "HR", "tenure": "3 years", "preferred_format": "bullets"}, "relevant_key": null}
+{"id": "Q8", "kind": "stale", "memory_effect": "hurts", "question": "Which project should I focus on this week?", "seed": {"current_project": "Project Atlas"}, "relevant_key": "current_project"}
+{"id": "Q9", "kind": "stale", "memory_effect": "hurts", "question": "Remind me which office I'm assigned to.", "seed": {"assigned_office": "Building C (closed last quarter)"}, "relevant_key": "assigned_office"}
