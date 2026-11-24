@@ -31,3 +31,16 @@
 ## DR #2 Feedback
 
 _(To be filled during the design review — commit live during the review.)_
+## Week 15 — Limited Preference Memory
+
+Decision: keep memory disabled by default; allow opt-in response-format
+preferences only (bullets or prose), with a 30-day TTL and user forgetting.
+
+The 20-question live comparison improved bullet adherence from 25% to
+100%, while factual completeness remained 65% in both modes.
+The outer-agent prompt-character proxy increased by 17.5%.
+
+Current policy facts continue to come from retrieval. Broader personal
+memory is not justified: repeat-user rate and actual API cost remain
+unmeasured. Policy-answer completeness and citation issues remain
+documented follow-up work.
