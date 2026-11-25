@@ -1,0 +1,20 @@
+wrote the labelled golden set + web fixtures
+side-DB built: data/capstone_side.db
+
+  Memory ON vs OFF — the honest comparison
+  ==============================================================
+  ID  kind        on✓  off✓  on chars  off chars  effect
+  --------------------------------------------------------------
+  Q1  preference  Y    n     266       202        helps
+  Q2  preference  Y    n     265       201        helps
+  Q3  stateless   Y    Y     281       175        neutral
+  Q4  stateless   Y    Y     310       204        neutral
+  Q5  stateless   Y    Y     297       191        neutral
+  Q6  stateless   Y    Y     290       184        neutral
+  Q7  stateless   Y    Y     298       192        neutral
+  Q8  stale       n    Y     267       198        hurts
+  Q9  stale       n    Y     283       195        hurts
+  --------------------------------------------------------------
+  VERDICT: LIMITED / DROP for general use — memory did not improve overall correctness and added cost. Keep it ONLY scoped to stable preference facts (helped on 2), never for changing state (hurt on 2 stale-context questions).
+  (correctness on=0.78 vs off=0.78; prompt cost +47% with memory on; helps 2 / hurts 2 / neutral 5)
+

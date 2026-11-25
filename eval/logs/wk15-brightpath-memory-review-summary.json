@@ -1,0 +1,24 @@
+{
+  "OFF": {
+    "fact_correct": 13,
+    "grounded": 17,
+    "citation_valid": 12,
+    "preference_met": 5,
+    "rows": 20,
+    "tool_success": 20,
+    "prompt_chars_mean": 1665.8,
+    "latency_p50_ms": 9060.5,
+    "latency_p95_ms": 11256.95
+  },
+  "ON": {
+    "fact_correct": 13,
+    "grounded": 18,
+    "citation_valid": 14,
+    "preference_met": 20,
+    "rows": 20,
+    "tool_success": 20,
+    "prompt_chars_mean": 1957.1,
+    "latency_p50_ms": 9942.5,
+    "latency_p95_ms": 12140.6
+  }
+}
