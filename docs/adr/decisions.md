@@ -44,3 +44,6 @@ Current policy facts continue to come from retrieval. Broader personal
 memory is not justified: repeat-user rate and actual API cost remain
 unmeasured. Policy-answer completeness and citation issues remain
 documented follow-up work.
+
+
+Week 16 decision: Retain the LangGraph port because its input-redaction and budget checks can be tested before model and tool calls. The budget counts simulated outer calls; actual spending remains unmeasured. Keep q17 as a regression test: the question supplied Chennai, but the agent asked for the city again after seeing <LOCATION>. Investigate how to preserve policy-relevant locations while still redacting personal information.

@@ -1,0 +1,818 @@
+[
+  {
+    "id": "q01",
+    "question": "How many days of paid annual leave does an eligible employee receive for a complete calendar year?",
+    "ideal_answer": "20 days of paid annual leave per complete calendar year",
+    "expected_source": [
+      "HR_02_Annual_Leave_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 73908,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "How many days of paid annual leave does an eligible employee receive for a complete calendar year?",
+      "answer": "- An eligible employee receives 20 days of paid annual leave for each complete calendar year.  \n  Source: HR_02_Annual_Leave_Policy.txt [kb_version: v2.w10]",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1828,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "How many days of paid annual leave does an eligible employee receive for a complete calendar year?"
+          },
+          "observation": "{\"answer\": \"An eligible employee receives twenty days of paid annual leave for each complete calendar year [1].\", \"citations\": [{\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 10.533207893371582}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 2.0329511165618896}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 0.8668727874755859}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q02",
+    "question": "How far in advance should an employee request three or more consecutive days of annual leave?",
+    "ideal_answer": "A request for three or more consecutive days of annual leave should be submitted at least 10 working days in advance.",
+    "expected_source": [
+      "HR_02_Annual_Leave_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 11487,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "How far in advance should an employee request three or more consecutive days of annual leave?",
+      "answer": "- Employees must submit requests for three or more consecutive days of annual leave at least ten working days in advance (HR_02_Annual_Leave_Policy.txt).",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1844,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "How far in advance should an employee request three or more consecutive days of annual leave?"
+          },
+          "observation": "{\"answer\": \"An employee should submit requests for three or more consecutive days of annual leave at least ten working days in advance [1].\", \"citations\": [{\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 8.491403579711914}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 3.7815139293670654}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 3.114060878753662}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q03",
+    "question": "What are the standard collaboration hours for an employee working remotely?",
+    "ideal_answer": "The standard remote-work collaboration hours are 10:00 a.m. to 4:00 p.m. IST.",
+    "expected_source": [
+      "HR_03_Remote_Work_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 10233,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What are the standard collaboration hours for an employee working remotely?",
+      "answer": "- Standard collaboration hours for remote employees: 10:00 a.m. to 4:00 p.m. IST. (Source: HR_03_Remote_Work_Policy.txt)  \n- Also referenced in: HR_01_Employee_Onboarding_Guide.txt.",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1793,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What are the standard collaboration hours for an employee working remotely?"
+          },
+          "observation": "{\"answer\": \"The standard collaboration hours for an employee working remotely are from 10:00 a.m. to 4:00 p.m. IST [1].\", \"citations\": [{\"source\": \"HR_03_Remote_Work_Policy.txt\", \"score\": 5.202972888946533}, {\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": 1.0548791885375977}, {\"source\": \"HR_03_Remote_Work_Policy.txt\", \"score\": -1.765774130821228}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q04",
+    "question": "Which family members can an employee register as dependants under the medical plan?",
+    "ideal_answer": "Eligible dependants include a spouse or declared partner, up to two dependent children, and either the employee's parents or parents-in-law.",
+    "expected_source": [
+      "HR_04_Employee_Benefits_Guide.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 11873,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "Which family members can an employee register as dependants under the medical plan?",
+      "answer": "- Spouse or declared partner (HR_04_Employee_Benefits_Guide.txt)  \n- Up to two dependent children (HR_04_Employee_Benefits_Guide.txt)  \n- Either parents or parents‑in‑law (HR_04_Employee_Benefits_Guide.txt)",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1903,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "Which family members can an employee register as dependants under the medical plan?"
+          },
+          "observation": "{\"answer\": \"An employee can register the following family members as dependants under the medical plan: a spouse or declared partner, up to two dependent children, and either parents or parents-in-law [1].\", \"citations\": [{\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": 4.421395778656006}, {\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": -4.067203998565674}, {\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": -4.384997844696045}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q05",
+    "question": "Which flight class should normally be booked for a business flight lasting less than six hours?",
+    "ideal_answer": "Economy class should normally be booked for a business flight lasting less than six hours.",
+    "expected_source": [
+      "HR_05_Travel_and_Expense_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 15499,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "Which flight class should normally be booked for a business flight lasting less than six hours?",
+      "answer": "- Economy class — HR_05_Travel_and_Expense_Policy.txt: “Economy class should normally be booked for a business flight lasting less than six hours.” [HR_05_Travel_and_Expense_Policy.txt]",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1834,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "Which flight class should normally be booked for a business flight lasting less than six hours?"
+          },
+          "observation": "{\"answer\": \"Economy class should normally be booked for a business flight lasting less than six hours [1].\", \"citations\": [{\"source\": \"HR_05_Travel_and_Expense_Policy.txt\", \"score\": 6.315450668334961}, {\"source\": \"HR_05_Travel_and_Expense_Policy.txt\", \"score\": -6.532820224761963}, {\"source\": \"HR_05_Travel_and_Expense_Policy.txt\", \"score\": -7.071988105773926}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q06",
+    "question": "What is the minimum required length for a BrightPath corporate password?",
+    "ideal_answer": "The length of the password must contain at least 14 characters",
+    "expected_source": [
+      "IT_01_Password_and_MFA_Guide.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 11744,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What is the minimum required length for a BrightPath corporate password?",
+      "answer": "- Minimum required length: at least fourteen characters (source: IT_01_Password_and_MFA_Guide.txt).",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1785,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What is the minimum required length for a BrightPath corporate password?"
+          },
+          "observation": "{\"answer\": \"The minimum required length for a BrightPath corporate password is at least fourteen characters [1].\", \"citations\": [{\"source\": \"IT_01_Password_and_MFA_Guide.txt\", \"score\": 5.00461483001709}, {\"source\": \"IT_01_Password_and_MFA_Guide.txt\", \"score\": -1.8243765830993652}, {\"source\": \"IT_01_Password_and_MFA_Guide.txt\", \"score\": -3.141876697540283}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q07",
+    "question": "From where should an employee download the approved corporate VPN client?",
+    "ideal_answer": "Employees can download the VPN client from the corporate software centre",
+    "expected_source": [
+      "IT_02_VPN_Setup_Guide.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 12633,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "From where should an employee download the approved corporate VPN client?",
+      "answer": "- Download the approved corporate VPN client from the corporate software centre.  \n  - Downloads from search results, personal storage, or unverified websites are prohibited.  \n\nSources:\n- IT_02_VPN_Setup_Guide.txt [1]\n- HR_03_Remote_Work_Policy.txt [1]",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1855,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "From where should an employee download the approved corporate VPN client?"
+          },
+          "observation": "{\"answer\": \"An employee must download the approved corporate VPN client from the corporate software centre. Downloads from search results, personal storage, or unverified websites are prohibited [1].\", \"citations\": [{\"source\": \"IT_02_VPN_Setup_Guide.txt\", \"score\": 7.827671051025391}, {\"source\": \"HR_03_Remote_Work_Policy.txt\", \"score\": 3.093282699584961}, {\"source\": \"IT_02_VPN_Setup_Guide.txt\", \"score\": 2.6566734313964844}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q08",
+    "question": "Who should an employee contact first after discovering that a company laptop is missing?",
+    "ideal_answer": "The first contact for a missing laptop is the security hotline. Emergency services apply only when there is danger or theft in progress",
+    "expected_source": [
+      "IT_06_Lost_or_Stolen_Device_Procedure.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 16150,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "Who should an employee contact first after discovering that a company laptop is missing?",
+      "answer": "- Contact your manager immediately.\n- Contact the IT service desk immediately.\n\nSource(s): HR_01_Employee_Onboarding_Guide.txt; IT_06_Lost_or_Stolen_Device_Procedure.txt; IT_03_Laptop_and_Equipment_Policy.txt.",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1866,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "Who should an employee contact first after discovering that a company laptop is missing?"
+          },
+          "observation": "{\"answer\": \"An employee should contact their manager and the IT service desk immediately after discovering that a company laptop is missing [2].\", \"citations\": [{\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": 2.237668752670288}, {\"source\": \"IT_06_Lost_or_Stolen_Device_Procedure.txt\", \"score\": -1.637919306755066}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -2.959624767303467}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q09",
+    "question": "What account-security and remote-access activities should a new remote employee complete on the first day?",
+    "ideal_answer": "On the first day, the employee should activate the corporate account, register MFA, confirm receipt of the equipment, install the approved VPN client, and verify that the VPN connection works using the corporate credentials and MFA.",
+    "expected_source": [
+      "HR_01_Employee_Onboarding_Guide.txt",
+      "IT_01_Password_and_MFA_Guide.txt",
+      "IT_02_VPN_Setup_Guide.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 14245,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What account-security and remote-access activities should a new remote employee complete on the first day?",
+      "answer": "- Summary: I cannot verify any BrightPath policy that lists account-security or remote-access activities a new remote employee must complete on their first day.  \n  - Source returned: HR_01_Employee_Onboarding_Guide.txt (kb_version: v2.w10). The lookup result indicates the guide does not specify those activities. [lookup_policy result]\n- Next steps you can ask me to do:\n  - Retry the policy lookup with a more specific query (examples: \"first-day IT checklist\", \"VPN enrollment for new hires\", \"multi-factor authentication setup new employee\").  \n  - Search other policy documents (IT security, remote-work, or onboarding subguides) if you want me to look for related instructions.  \n\nIf you want me to retry, tell me which specific terms or documents to search.",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1913,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What account-security and remote-access activities should a new remote employee complete on the first day?"
+          },
+          "observation": "{\"answer\": \"The provided context does not specify any account-security and remote-access activities that a new remote employee should complete on the first day.\", \"citations\": [{\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": 0.3482110798358917}, {\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": -0.8921670913696289}, {\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": -3.3581204414367676}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q10",
+    "question": "What precautions should an employee take before accessing internal services from public Wi-Fi?",
+    "ideal_answer": "Public WIFI should be treated as untrusted,hence before connecting verify the network name and disable automatic connection and also connect to VPN to access the internal resources with an approved managed device and MFA",
+    "expected_source": [
+      "HR_03_Remote_Work_Policy.txt",
+      "IT_01_Password_and_MFA_Guide.txt",
+      "IT_02_VPN_Setup_Guide.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 16021,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What precautions should an employee take before accessing internal services from public Wi-Fi?",
+      "answer": "From policy, before accessing internal services from a public <LOCATION> take these precautions:\n\n- Verify the network name.  \n- Disable automatic connection to networks.  \n- Start the VPN before opening internal resources.  \n- Ensure that split tunnelling is not changed, as it is centrally configured.  \n- Avoid running personal proxy tools, consumer VPN products, and network-bypass utilities alongside the corporate client.\n\nSources:\n- IT_02_VPN_Setup_Guide.txt  \n- IT_03_Laptop_and_Equipment_Policy.txt  \n- IT_02_VPN_Setup_Guide.txt (kb_version: v2.w10)",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 2183,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What precautions should an employee take before accessing internal services from public <LOCATION>?"
+          },
+          "observation": "{\"answer\": \"Before accessing internal services from a public location, an employee should take the following precautions:\\n\\n1. Verify the network name.\\n2. Disable automatic connection to networks.\\n3. Start the VPN before opening internal resources.\\n4. Ensure that split tunnelling is not changed, as it is centrally configured.\\n5. Avoid running personal proxy tools, consumer VPN products, and network-bypass utilities alongside the corporate client [1].\", \"citations\": [{\"source\": \"IT_02_VPN_Setup_Guide.txt\", \"score\": -0.03155297413468361}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -0.05298022925853729}, {\"source\": \"IT_02_VPN_Setup_Guide.txt\", \"score\": -0.3283505439758301}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q11",
+    "question": "What should an employee do if a phone containing the corporate authenticator application is lost?",
+    "ideal_answer": "The employee should immediately report the loss through the security hotline, change the corporate password from a trusted device, deny unexpected MFA prompts, and ask the service desk to revoke the old authenticator before enrolling the replacement device.",
+    "expected_source": [
+      "IT_01_Password_and_MFA_Guide.txt",
+      "IT_05_Incident_Reporting_Procedure.txt",
+      "IT_06_Lost_or_Stolen_Device_Procedure.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 15295,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What should an employee do if a phone containing the corporate authenticator application is lost?",
+      "answer": "- Report the loss immediately so the security team can respond. (IT_01_Password_and_MFA_Guide.txt)\n- The security team will revoke the old MFA/authenticator registration before you enroll a replacement phone to mitigate account risk. (IT_01_Password_and_MFA_Guide.txt; IT_06_Lost_or_Stolen_Device_Procedure.txt)",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1986,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What should an employee do if a phone containing the corporate authenticator application is lost?"
+          },
+          "observation": "{\"answer\": \"If a phone containing the corporate authenticator application is lost, the employee should report the loss immediately. The security team should revoke the old MFA registration before enrolling a replacement phone to mitigate account risk [2].\", \"citations\": [{\"source\": \"IT_01_Password_and_MFA_Guide.txt\", \"score\": 5.24608039855957}, {\"source\": \"IT_06_Lost_or_Stolen_Device_Procedure.txt\", \"score\": 1.003088116645813}, {\"source\": \"IT_01_Password_and_MFA_Guide.txt\", \"score\": -3.0445921421051025}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q12",
+    "question": "What steps and approvals are required to provide a new employee with access to a business application?",
+    "ideal_answer": "The hiring manager submits the access request with the business reason and required permission. The reporting manager approves the business need, and the application owner approves the appropriate permission level. The lowest level of access needed for the work should be granted.",
+    "expected_source": [
+      "HR_01_Employee_Onboarding_Guide.txt",
+      "IT_04_Software_Access_Request_Process.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 19248,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What steps and approvals are required to provide a new employee with access to a business application?",
+      "answer": "- Manager confirms there is a legitimate business need for the new employee to have the application access. (IT_04_Software_Access_Request_Process.txt)  \n- Manager submits an access request that identifies the intended user and the required start date. (IT_04_Software_Access_Request_Process.txt; HR_01_Employee_Onboarding_Guide.txt)  \n- New employee must read the relevant requirements and provide accurate information as requested. (HR_01_Employee_Onboarding_Guide.txt)  \n- The access request must go through the required approval steps as outlined in the access request process. (IT_04_Software_Access_Request_Process.txt)  \n- Access must be assigned to a named user and tied to a legitimate business need; shared accounts are prohibited unless a documented exception is approved by the application owner. (IT_04_Software_Access_Request_Process.txt)\n\nSources:\n- IT_04_Software_Access_Request_Process.txt  \n- HR_01_Employee_Onboarding_Guide.txt",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 2628,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What steps and approvals are required to provide a new employee with access to a business application?"
+          },
+          "observation": "{\"answer\": \"To provide a new employee with access to a business application, the following steps and approvals are required:\\n\\n1. **Business Need Confirmation**: The manager must confirm the business need for the new employee's access.\\n2. **Access Request Submission**: The manager can request access for the new team member, ensuring that the request identifies the intended user and the required start date.\\n3. **Employee Responsibility**: The new employee is responsible for reading the relevant requirements and providing accurate information as needed.\\n4. **Approval Process**: The request must go through the necessary approvals as outlined in the access request process.\\n\\nAdditionally, access must be linked to a named user and a legitimate business need, and shared accounts are prohibited unless documented exceptions are made by the application owner [1][3].\", \"citations\": [{\"source\": \"IT_04_Software_Access_Request_Process.txt\", \"score\": 2.841089963912964}, {\"source\": \"HR_01_Employee_Onboarding_Guide.txt\", \"score\": 2.3658697605133057}, {\"source\": \"IT_04_Software_Access_Request_Process.txt\", \"score\": 1.7566803693771362}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q13",
+    "question": "How should an employee protect a company laptop and internal access while travelling for business?",
+    "ideal_answer": "The employee should use a company-managed device, verify the public network name, disable automatic connection, and connect to the corporate VPN before opening internal resources. The device should remain screen-locked and must not be left unattended in public places or vehicles.",
+    "expected_source": [
+      "HR_03_Remote_Work_Policy.txt",
+      "HR_05_Travel_and_Expense_Policy.txt",
+      "IT_02_VPN_Setup_Guide.txt",
+      "IT_03_Laptop_and_Equipment_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 18521,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "How should an employee protect a company laptop and internal access while travelling for business?",
+      "answer": "- Permit automatic security updates on the company laptop. (Source: IT_03_Laptop_and_Equipment_Policy.txt)  \n- Use a screen lock whenever the device is unattended. (Source: IT_03_Laptop_and_Equipment_Policy.txt)  \n- Protect the device from unauthorized access; do not allow family members or other unauthorized people to use company equipment, even briefly. (Source: IT_03_Laptop_and_Equipment_Policy.txt)  \n- Do not leave company equipment unattended in public places or in vehicles. (Source: IT_03_Laptop_and_Equipment_Policy.txt; IT_06_Lost_or_Stolen_Device_Procedure.txt)",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 2168,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "How should an employee protect a company laptop and internal access while travelling for business?"
+          },
+          "observation": "{\"answer\": \"An employee should protect a company laptop and internal access while travelling for business by permitting automatic security updates, using a screen lock, protecting the device from unauthorized access, and avoiding leaving the equipment unattended in public places or vehicles. Additionally, family members and other unauthorized people must not use the company equipment, even for brief personal tasks [1].\", \"citations\": [{\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": 1.6466513872146606}, {\"source\": \"IT_06_Lost_or_Stolen_Device_Procedure.txt\", \"score\": -2.090186357498169}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -3.2655858993530273}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q14",
+    "question": "What should an employee do if they become medically unfit during approved annual leave while travelling?",
+    "ideal_answer": "If an employee becomes medically unfit during annual leave, they may request that the absence be reclassified as sick leave by submitting acceptable medical evidence within three working days after returning. For an emergency while travelling, the employee should use local emergency services and notify the travel provider and manager.",
+    "expected_source": [
+      "HR_02_Annual_Leave_Policy.txt",
+      "HR_05_Travel_and_Expense_Policy.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 11846,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What should an employee do if they become medically unfit during approved annual leave while travelling?",
+      "answer": "- You may request that the period be reclassified from annual leave to sick leave.  \n- Provide acceptable medical evidence within three working days of returning to work.  \n  - Source: HR_02_Annual_Leave_Policy.txt [1]",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1984,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What should an employee do if they become medically unfit during approved annual leave while travelling?"
+          },
+          "observation": "{\"answer\": \"If an employee becomes medically unfit during approved annual leave, they may request reclassification of their leave as sick leave. To do this, they must provide acceptable medical evidence within three working days of returning to work [1].\", \"citations\": [{\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 6.890105247497559}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": -1.6828283071517944}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": -1.7000665664672852}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q15",
+    "question": "When a remote employee leaves the company, what should happen to assigned equipment and unnecessary application access?",
+    "ideal_answer": "All the assigned equipment should be returned by the date specified for separation and data should not be copied in personal storage before return. The manager ensures unnecessary access is removed.",
+    "expected_source": [
+      "IT_03_Laptop_and_Equipment_Policy.txt",
+      "IT_04_Software_Access_Request_Process.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 16653,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "When a remote employee leaves the company, what should happen to assigned equipment and unnecessary application access?",
+      "answer": "- Assigned equipment: remains with the remote employee until Asset Management records receipt — Asset Management will provide approved packaging and courier instructions. (Source: IT_03_Laptop_and_Equipment_Policy.txt)\n\n- Unnecessary application access: must be removed via the transfer/separation workflow and handled by the manager. (Sources: IT_04_Software_Access_Request_Process.txt; IT_03_Laptop_and_Equipment_Policy.txt)",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 2124,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "When a remote employee leaves the company, what should happen to assigned equipment and unnecessary application access?"
+          },
+          "observation": "{\"answer\": \"When a remote employee leaves the company, the assigned equipment remains with the employee until Asset Management records its receipt after providing approved packaging and courier instructions. Additionally, unnecessary application access must be removed through the transfer or separation workflow by the manager [2][3].\", \"citations\": [{\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": 1.928521752357483}, {\"source\": \"IT_04_Software_Access_Request_Process.txt\", \"score\": 0.22150078415870667}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -0.16764141619205475}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q16",
+    "question": "What should an employee do if a software supplier offers a shopping voucher while the employee is involved in selecting the supplier?",
+    "ideal_answer": "The voucher must be declined and reported, especially because supplier selection is active.",
+    "expected_source": [
+      "HR_06_Code_of_Conduct.txt",
+      "IT_04_Software_Access_Request_Process.txt"
+    ],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 12117,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What should an employee do if a software supplier offers a shopping voucher while the employee is involved in selecting the supplier?",
+      "answer": "- Decline the shopping voucher.\n- Report the offer (it creates an unacceptable appearance of influence while you are involved in selecting the supplier).\n\nSource: HR_06_Code_of_Conduct.txt [policy lookup].",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1993,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What should an employee do if a software supplier offers a shopping voucher while the employee is involved in selecting the supplier?"
+          },
+          "observation": "{\"answer\": \"The employee should decline the shopping voucher and report the offer, as it creates an unacceptable appearance of influence while they are involved in selecting the supplier [1].\", \"citations\": [{\"source\": \"HR_06_Code_of_Conduct.txt\", \"score\": 7.422523498535156}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -6.613033294677734}, {\"source\": \"IT_04_Software_Access_Request_Process.txt\", \"score\": -7.109306812286377}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q17",
+    "question": "What is the exact rupee limit for meals during a business trip to Chennai?",
+    "ideal_answer": "The exact Chennai meal limit is not specified in the available corpus. The employee should check the currently published city limit or contact Finance Help.",
+    "expected_source": [],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 5414,
+    "cost_usd": null,
+    "policy_tool_called": false,
+    "policy_calls_ok": null,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What is the exact rupee limit for meals during a business trip to Chennai?",
+      "answer": "- I don’t have a specific location to look up — please tell me the exact city/country (or region) for \"<LOCATION>\" so I can fetch the policy.  \n- If the allowance depends on job level (e.g., manager vs. individual contributor) or trip type (domestic vs. international), please say which applies.  \n- If the trip date matters (policy changed recently), tell me the travel dates or effective date you need.  \n\nOnce you provide that, I will look up the exact rupee meal limit and include the policy citation.",
+      "iterations": 1,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 706,
+      "steps": []
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q18",
+    "question": "For exactly how many days may an employee work from outside India without additional approval?",
+    "ideal_answer": "The policy does not specify a maximum number of approved international remote-working days. The employee should contact People Operations for case-specific confirmation.",
+    "expected_source": [],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 72139,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "For exactly how many days may an employee work from outside India without additional approval?",
+      "answer": "- I cannot verify an exact number of days from the policy text returned — the policy does not specify a specific number of days an employee may work from outside <LOCATION> without additional approval. (HR_03_Remote_Work_Policy.txt)  \n- The policy indicates working from outside India (and similar cases) is not automatically permitted and requires approvals, but no clear day limit is given in the retrieved policy text. (HR_03_Remote_Work_Policy.txt)  \n- Sources checked: HR_03_Remote_Work_Policy.txt; no definitive day-count found.",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 2170,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "For exactly how many days may an employee work from outside <LOCATION> without additional approval?"
+          },
+          "observation": "{\"answer\": \"The context does not specify a particular number of days an employee may work from outside a specific location without additional approval. It states that working from outside India is not automatically permitted and requires various approvals, but does not provide a clear answer regarding the number of days for working from outside a location without additional approval. Therefore, I cannot provide an answer based on the provided context.\", \"citations\": [{\"source\": \"HR_03_Remote_Work_Policy.txt\", \"score\": 3.590012311935425}, {\"source\": \"HR_03_Remote_Work_Policy.txt\", \"score\": 2.918963670730591}, {\"source\": \"HR_02_Annual_Leave_Policy.txt\", \"score\": 0.9661144018173218}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q19",
+    "question": "How much must an employee pay to replace a company laptop that was accidentally damaged?",
+    "ideal_answer": "The policy does not specify how much an employee must pay for accidental laptop damage. The employee should report the damage to IT Asset Management or the IT service desk for assessment.",
+    "expected_source": [],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 16728,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "How much must an employee pay to replace a company laptop that was accidentally damaged?",
+      "answer": "- I cannot verify from the current BrightPath policy how much an employee must pay to replace a company laptop that was accidentally damaged.  \n  - Evidence: lookup returned \"The provided context does not specify...\"  \n  - Source: IT_03_Laptop_and_Equipment_Policy.txt (kb_version: v2.w10)  \n\n- Would you like me to:\n  - search for related policies (e.g., equipment, IT, or reimbursements) or\n  - suggest who to contact at BrightPath to get an official answer?",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1859,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "How much must an employee pay to replace a company laptop that was accidentally damaged?"
+          },
+          "observation": "{\"answer\": \"The provided context does not specify how much an employee must pay to replace a company laptop that was accidentally damaged.\", \"citations\": [{\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -3.756791830062866}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -4.522235870361328}, {\"source\": \"IT_03_Laptop_and_Equipment_Policy.txt\", \"score\": -5.284758567810059}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  },
+  {
+    "id": "q20",
+    "question": "What is the exact maximum medical insurance coverage amount available to each employee?",
+    "ideal_answer": "As per the policy document the medical coverage limit is not mentioned anywhere ,hence please refer to the Benefits portal or Total Rewards team.",
+    "expected_source": [],
+    "memory_on": true,
+    "router_model": "gpt-5-mini",
+    "latency_ms": 19255,
+    "cost_usd": null,
+    "policy_tool_called": true,
+    "policy_calls_ok": true,
+    "review": {
+      "fact_correct": null,
+      "grounded": null,
+      "citation_valid": null,
+      "preference_met": null,
+      "notes": ""
+    },
+    "result": {
+      "question": "What is the exact maximum medical insurance coverage amount available to each employee?",
+      "answer": "- I cannot verify the exact maximum medical insurance coverage amount from BrightPath policies based on the available documents. The lookup returned: \"The provided context does not specify the exact maximum medical insurance coverage amount available to each employee.\"\n- Source(s) returned by the policy lookup:\n  - HR_04_Employee_Benefits_Guide.txt (kb_version: v2.w10)\n- Suggested next steps:\n  - Check the latest Employee Benefits Guide or the Benefits section on the employee portal, or\n  - Contact your HR/Benefits team for the exact maximum coverage amount.",
+      "iterations": 2,
+      "stop_reason": "final",
+      "memory_used": true,
+      "memory_note": null,
+      "prompt_chars": 1835,
+      "steps": [
+        {
+          "tool": "lookup_policy",
+          "args": {
+            "question": "What is the exact maximum medical insurance coverage amount available to each employee?"
+          },
+          "observation": "{\"answer\": \"The provided context does not specify the exact maximum medical insurance coverage amount available to each employee.\", \"citations\": [{\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": -3.101149320602417}, {\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": -4.84883451461792}, {\"source\": \"HR_04_Employee_Benefits_Guide.txt\", \"score\": -9.153142929077148}], \"kb_version\": \"v2.w10\"}",
+          "status": "ok"
+        }
+      ]
+    },
+    "graph_version": "langgraph"
+  }
+]
