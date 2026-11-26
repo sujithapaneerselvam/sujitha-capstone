@@ -5,6 +5,7 @@ PII and cost guardrails will be added after baseline parity checks.
 from __future__ import annotations
 
 import json
+import re
 import operator
 from typing import Annotated, TypedDict
 from src.ingest.pipeline import _scrub_text as scrub_pii
@@ -31,6 +32,11 @@ class GraphState(TypedDict):
     memory_used: bool
     prompt_chars: int
     remaining_units: int
+    plan: list[dict]
+    plan_index: int
+    retried: bool
+    evidence: list[str]
+    reflection_retries: int
 
 
 class GraphAgent:
@@ -46,14 +52,24 @@ class GraphAgent:
             raise ValueError("budget_units must be a non-negative integer")
         
         graph = StateGraph(GraphState)
+        graph.add_node("pii_check", self._pii_check)
         graph.add_node("think", self._think)
         graph.add_node("tool", self._tool)
         graph.add_node("iteration_limit", self._iteration_limit)
-        graph.add_node("pii_check", self._pii_check)
         graph.add_node("cost_limit", self._cost_limit)
 
         graph.add_edge(START, "pii_check")
-        graph.add_edge("pii_check", "cost_limit")
+        graph.add_node("plan", self._plan)
+        graph.add_node("reflect", self._reflect)
+
+        graph.add_conditional_edges(
+            "pii_check",
+            self._route_question,
+            {"plan": "plan", "simple": "cost_limit"},
+        )
+        graph.add_edge("plan", "cost_limit")
+       
+        
         graph.add_conditional_edges(
             "cost_limit",
             self._after_cost_check,
@@ -66,8 +82,25 @@ class GraphAgent:
         )
         graph.add_conditional_edges(
             "tool",
-            lambda s: "limit" if s["iterations"] >= self.base.max_iter else "check",
-            {"limit": "iteration_limit", "check": "cost_limit"},
+            lambda s: (
+                "reflect" if s["plan"]
+                else "limit" if s["iterations"] >= self.base.max_iter
+                else "check"
+            ),
+            {
+                "reflect": "reflect",
+                "limit": "iteration_limit",
+                "check": "cost_limit",
+            },
+        )
+        graph.add_conditional_edges(
+            "reflect",
+            lambda s: (
+                "done" if s["finished"]
+                else "limit" if s["iterations"] >= self.base.max_iter
+                else "check"
+            ),
+            {"done": END, "limit": "iteration_limit", "check": "cost_limit"},
         )
         graph.add_edge("iteration_limit", END)
 
@@ -88,6 +121,116 @@ class GraphAgent:
         if state["finished"]:
             return "done"
         return "tool" if state["pending"] is not None else "think"
+    
+    def _route_question(self, state):
+        q = state["question"].lower()
+        asks_leave = "leave" in q
+        asks_entitlement = any(
+            term in q for term in ("entitlement", "how many days", "allowance")
+        )
+        asks_notice = any(
+            term in q for term in ("notice", "advance", "how early")
+        )
+        return "plan" if asks_leave and asks_entitlement and asks_notice else "simple"
+
+    def _plan(self, state):
+        # Preserve the redacted original question, including any conditions.
+        q = state["question"]
+        plan = [
+            {
+                "label": "Annual-leave entitlement",
+                "query": f"{q}\nAnswer only the entitlement part. Cite the policy.",
+                "retry": "Find the annual entitlement clause and its number of days.",
+            },
+            {
+                "label": "Advance notice",
+                "query": f"{q}\nAnswer only the advance-notice part. Cite the policy.",
+                "retry": "Find the request deadline for the leave duration in the question.",
+            },
+        ]
+        return {
+            "plan": plan,
+            "pending": {
+                "name": "lookup_policy",
+                "args": {"question": plan[0]["query"]},
+            },
+        }
+
+    def _reflect(self, state):
+        i = state["plan_index"]
+        item = state["plan"][i]
+        step = state["steps"][-1]
+
+        try:
+            payload = json.loads(step["observation"])
+        except (TypeError, ValueError):
+            payload = {}
+        if not isinstance(payload, dict):
+            payload = {}
+
+        answer = str(payload.get("answer") or "").strip()
+        citations = payload.get("citations") or []
+        sources = list(dict.fromkeys(
+            c["source"] for c in citations
+            if isinstance(c, dict) and isinstance(c.get("source"), str)
+            and c["source"].strip()
+        ))
+
+        # A successful HTTP call alone does not establish evidence.
+        # These checks apply only to this two-part leave-policy exercise.
+        day_count = re.search(
+            r"\b(?:\d+|one|two|three|five|ten|twenty)\s+"
+            r"(?:(?:working|business|calendar)\s+)?days?\b", answer, re.I
+        )
+        topic = (
+            re.search(r"\b(annual|year|yearly)\b", answer, re.I)
+            if i == 0 else
+            re.search(r"\b(advance|notice|before|prior)\b", answer, re.I)
+        )
+        abstained = re.search(
+            r"cannot verify|could not verify|does not specify|"
+            r"not enough information|insufficient|don't know", answer, re.I
+        )
+        supported = bool(
+            step["status"] == "ok" and sources and day_count and topic and not abstained
+        )
+
+        if not supported and not state["retried"]:
+            return {
+                "retried": True,
+                "reflection_retries": state["reflection_retries"] + 1,
+                "pending": {
+                    "name": "lookup_policy",
+                    "args": {"question": item["query"] + "\n" + item["retry"]},
+                },
+            }
+
+        detail = (
+            f"{answer} (Source: {', '.join(sources)})"
+            if supported else "Could not verify this part from the policy evidence."
+        )
+        evidence = state["evidence"] + [f"{item['label']}: {detail}"]
+        next_i = i + 1
+
+        if next_i == len(state["plan"]):
+            return {
+                "evidence": evidence,
+                "answer": "\n".join("- " + line for line in evidence),
+                "finished": True,
+                "pending": None,
+                "stop_reason": "final",
+            }
+
+        return {
+            "evidence": evidence,
+            "plan_index": next_i,
+            "retried": False,
+            "pending": {
+                "name": "lookup_policy",
+                "args": {"question": state["plan"][next_i]["query"]},
+            },
+        }
+
     def _think(self, state):
         response = self.base.llm.complete(
             state["messages"], self.base.tools
@@ -201,6 +344,11 @@ class GraphAgent:
                 "memory_used": memory_used,
                 "prompt_chars": 0,
                 "remaining_units": self.budget_units,
+                "plan": [],
+                "plan_index": 0,
+                "retried": False,
+                "evidence": [],
+                "reflection_retries": 0,
             },
             # Graph supersteps are not the same as LLM iterations.
             config={"recursion_limit": 4 * self.base.max_iter + 5},
